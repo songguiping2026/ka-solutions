@@ -18,9 +18,9 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--white);font-family:"Microsoft YaHei","微软雅黑","PingFang SC","SF Pro Display",sans-serif;font-size:15px;line-height:1.7}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(28,28,30,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.3);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:1.1rem;font-weight:700;color:var(--gold);white-space:nowrap}
-.nav-links{display:flex;gap:4px;list-style:none;flex-wrap:wrap;justify-content:flex-end}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(28,28,30,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.3);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:center;gap:0;position:fixed}
+.nav-logo{font-size:1rem;font-weight:700;color:var(--gold);white-space:nowrap;position:absolute;left:24px}
+.nav-links{display:flex;gap:2px;list-style:none;flex-wrap:wrap;justify-content:center}
 .nav-links a{color:var(--gray);text-decoration:none;font-size:0.78rem;padding:5px 10px;border-radius:6px;transition:color .2s,background .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold);background:var(--gold-faint)}
 
@@ -190,13 +190,13 @@ footer{background:var(--bg-dark);padding:40px 24px;text-align:center;border-top:
 <nav>
   <div class="nav-logo">🚛 快驴 × 黔有财</div>
   <ul class="nav-links">
-    <li><a href="#brand">品牌简介</a></li>
-    <li><a href="#review">复盘报告</a></li>
-    <li><a href="#account">开通账号</a></li>
-    <li><a href="#order">下单流程</a></li>
-    <li><a href="#recharge">预充值</a></li>
-    <li><a href="#billing">账单发票</a></li>
-    <li><a href="#service">服务售后</a></li>
+    <li><a href="#brand"><span style="color:#FF6B6B">🏮</span> 品牌简介</a></li>
+    <li><a href="#review"><span style="color:#FFD93D">📊</span> 复盘报告</a></li>
+    <li><a href="#account"><span style="color:#6BCB77">📱</span> 开通账号</a></li>
+    <li><a href="#order"><span style="color:#4D96FF">🛒</span> 下单流程</a></li>
+    <li><a href="#recharge"><span style="color:#C9A84C">💳</span> 预充值</a></li>
+    <li><a href="#billing"><span style="color:#A78BFA">🧾</span> 账单发票</a></li>
+    <li><a href="#service"><span style="color:#FF9F43">🛡️</span> 服务售后</a></li>
   </ul>
 </nav>
 
