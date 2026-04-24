@@ -225,7 +225,7 @@ footer{background:var(--bg-dark);padding:40px 24px;text-align:center;border-top:
 <section id="brand">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">📖 品牌简介</h2>
+      <h2 class="section-title">🏮 品牌简介</h2>
       <p class="section-sub">黔有财·贵州地摊酸汤火锅 — 深耕贵州特色，连锁华南市场</p>
     </div>
 
@@ -233,41 +233,183 @@ footer{background:var(--bg-dark);padding:40px 24px;text-align:center;border-top:
       <span class="badge" style="font-size:1rem;padding:10px 28px">「吃了黔有财，今年必发财」</span>
     </div>
 
-    <div class="grid-3">
-      <div class="card">
-        <span class="card-icon">🍲</span>
-        <div class="card-label">品牌定位</div>
-        <div class="card-value">贵州特色餐饮连锁<br><span class="text-gold" style="font-size:0.9rem">主打地摊风酸汤火锅</span></div>
-      </div>
+    <!-- 品牌定位介绍 -->
+    <div class="card" style="margin-bottom:32px;padding:24px 28px">
+      <p style="color:var(--text);font-size:0.95rem;line-height:1.8;margin:0">
+        「黔有财·贵州地摊酸汤火锅」是一个主打贵州特色酸汤火锅的餐饮品牌，门店主要集中在深圳，充满烟火气、注重性价比，是真正接地气的<span style="color:var(--gold);font-weight:600">「地摊火锅」</span>。以实惠的价格、丰富的贵州特色菜品赢得大量回头客。
+      </p>
+    </div>
+
+    <!-- 核心数据6格 -->
+    <div class="grid-3" style="margin-bottom:40px">
       <div class="card">
         <span class="card-icon">🏪</span>
-        <div class="card-label">全国门店</div>
-        <div class="card-value"><span style="font-size:1.4rem;font-weight:700;color:var(--gold)">30家</span><br><span class="text-gray" style="font-size:0.82rem">广东26家，占86.7%</span></div>
+        <div class="card-label">全国营业门店</div>
+        <div class="card-value"><span style="font-size:1.8rem;font-weight:700;color:var(--gold)">30</span><span style="font-size:1rem;color:var(--gold)">家</span><br><span class="text-gray" style="font-size:0.82rem">覆盖4省份·9城市</span></div>
       </div>
       <div class="card">
         <span class="card-icon">📍</span>
-        <div class="card-label">主要城市</div>
-        <div class="card-value">深圳为主<br><span class="text-gray" style="font-size:0.82rem">华南区域重点布局</span></div>
+        <div class="card-label">省份集中度</div>
+        <div class="card-value"><span style="font-size:1.8rem;font-weight:700;color:var(--gold)">86.7%</span><br><span class="text-gray" style="font-size:0.82rem">广东为主力战场</span></div>
       </div>
       <div class="card">
         <span class="card-icon">💰</span>
         <div class="card-label">人均消费</div>
-        <div class="card-value"><span style="font-size:1.5rem;font-weight:700;color:var(--gold)">¥63</span></div>
+        <div class="card-value"><span style="font-size:1.8rem;font-weight:700;color:var(--gold)">¥63</span><br><span class="text-gray" style="font-size:0.82rem">高性价比定位</span></div>
       </div>
       <div class="card">
         <span class="card-icon">⭐</span>
         <div class="card-label">大众点评评分</div>
-        <div class="card-value"><span style="font-size:1.5rem;font-weight:700;color:var(--gold)">4.2分</span><br><span class="text-gray" style="font-size:0.82rem">口碑优质</span></div>
+        <div class="card-value"><span style="font-size:1.8rem;font-weight:700;color:var(--gold)">4.2</span><span style="font-size:1rem;color:var(--gold)">分</span><br><span class="text-gray" style="font-size:0.82rem">口碑持续稳定</span></div>
       </div>
       <div class="card">
-        <span class="card-icon">🍽️</span>
-        <div class="card-label">核心菜品</div>
-        <div class="card-value">酸汤鱼、折耳根系列<br><span class="text-gray" style="font-size:0.82rem">贵州地摊特色菜</span></div>
+        <span class="card-icon">🔥</span>
+        <div class="card-label">招牌菜推荐指数</div>
+        <div class="card-value"><span style="font-size:1.8rem;font-weight:700;color:var(--gold)">999</span><br><span class="text-gray" style="font-size:0.82rem">招牌酸汤锅·同行爆品</span></div>
+      </div>
+      <div class="card">
+        <span class="card-icon">🗺️</span>
+        <div class="card-label">城市集中度</div>
+        <div class="card-value"><span style="font-size:1.8rem;font-weight:700;color:var(--gold)">50%</span><br><span class="text-gray" style="font-size:0.82rem">深圳为核心城市</span></div>
       </div>
     </div>
 
+    <!-- 省份分布 + 拓店里程碑 两栏 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px">
+
+      <!-- 省份分布 -->
+      <div class="card" style="padding:24px">
+        <h3 style="font-size:0.95rem;font-weight:600;color:var(--gold);margin:0 0 20px;padding-left:10px;border-left:2px solid var(--gold)">🗺️ 省份分布</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+          <thead>
+            <tr style="background:rgba(201,168,76,0.12)">
+              <th style="padding:8px 10px;text-align:left;color:var(--gold);font-weight:600;border-bottom:1px solid rgba(201,168,76,0.2)">省份</th>
+              <th style="padding:8px 10px;text-align:center;color:var(--gold);font-weight:600;border-bottom:1px solid rgba(201,168,76,0.2)">门店数</th>
+              <th style="padding:8px 10px;text-align:center;color:var(--gold);font-weight:600;border-bottom:1px solid rgba(201,168,76,0.2)">占比</th>
+              <th style="padding:8px 10px;text-align:left;color:var(--gold);font-weight:600;border-bottom:1px solid rgba(201,168,76,0.2)">选址偏好</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+              <td style="padding:9px 10px;color:var(--text)">🏆 广东省</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--gold);font-weight:700">26家</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--gold)">86.7%</td>
+              <td style="padding:9px 10px;color:var(--gray);font-size:0.8rem">居民社区店</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02)">
+              <td style="padding:9px 10px;color:var(--text)">🥈 福建省</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text-dim);font-weight:600">2家</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text-dim)">6.7%</td>
+              <td style="padding:9px 10px;color:var(--gray);font-size:0.8rem">酒店周边店</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+              <td style="padding:9px 10px;color:var(--text)">🥉 湖北省</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text-dim);font-weight:600">1家</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text-dim)">3.3%</td>
+              <td style="padding:9px 10px;color:var(--gray);font-size:0.8rem">写字楼店</td>
+            </tr>
+            <tr style="background:rgba(255,255,255,0.02)">
+              <td style="padding:9px 10px;color:var(--text)">　广西壮族自治区</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text-dim);font-weight:600">1家</td>
+              <td style="padding:9px 10px;text-align:center;color:var(--text-dim)">3.3%</td>
+              <td style="padding:9px 10px;color:var(--gray);font-size:0.8rem">商业街店</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 拓店里程碑 -->
+      <div class="card" style="padding:24px">
+        <h3 style="font-size:0.95rem;font-weight:600;color:var(--gold);margin:0 0 20px;padding-left:10px;border-left:2px solid var(--gold)">📅 拓店里程碑</h3>
+        <div style="position:relative;padding-left:24px">
+          <div style="position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,0.1))"></div>
+          <div style="margin-bottom:16px;position:relative">
+            <div style="position:absolute;left:-20px;top:3px;width:10px;height:10px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)"></div>
+            <div style="font-size:0.78rem;color:var(--gray)">2026-02</div>
+            <div style="font-size:0.88rem;color:var(--text);font-weight:600">新开 <span style="color:var(--gold)">3</span> 家门店</div>
+          </div>
+          <div style="margin-bottom:16px;position:relative">
+            <div style="position:absolute;left:-20px;top:3px;width:10px;height:10px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)"></div>
+            <div style="font-size:0.78rem;color:var(--gray)">2026-01</div>
+            <div style="font-size:0.88rem;color:var(--text);font-weight:600">新开 <span style="color:var(--gold)">1</span> 家门店</div>
+          </div>
+          <div style="margin-bottom:16px;position:relative">
+            <div style="position:absolute;left:-20px;top:3px;width:10px;height:10px;border:2px solid var(--gold);border-radius:50%;background:var(--bg)"></div>
+            <div style="font-size:0.78rem;color:var(--gray)">2025-12</div>
+            <div style="font-size:0.88rem;color:var(--text);font-weight:600">新开 <span style="color:var(--gold)">2</span> 家门店</div>
+          </div>
+          <div style="margin-bottom:16px;position:relative">
+            <div style="position:absolute;left:-20px;top:3px;width:10px;height:10px;border:2px solid #E8B84B;border-radius:50%;background:var(--bg)"></div>
+            <div style="font-size:0.78rem;color:var(--gray)">2025-08</div>
+            <div style="font-size:0.88rem;color:var(--text);font-weight:600">新开 <span style="color:var(--gold)">3</span> 家门店</div>
+          </div>
+          <div style="position:relative">
+            <div style="position:absolute;left:-20px;top:3px;width:10px;height:10px;border:2px solid rgba(201,168,76,0.4);border-radius:50%;background:var(--bg)"></div>
+            <div style="font-size:0.78rem;color:var(--gray)">品牌创立</div>
+            <div style="font-size:0.88rem;color:var(--gray)">持续深耕华南市场</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 品牌热门菜品TOP8 -->
     <div class="mt40">
-      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-left:12px;border-left:2px solid var(--gold)">🤝 快驴合作亮点</h3>
+      <h3 style="font-size:0.95rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-left:12px;border-left:2px solid var(--gold)">🍽️ 品牌热门菜品 TOP8</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🥘</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">招牌酸汤锅</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">同行爆品 🔥</div>
+          <div style="color:var(--gold);font-weight:700">¥28</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🥩</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">鲜切牛肉</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">同行爆品 🔥</div>
+          <div style="color:var(--gold);font-weight:700">¥26</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🥦</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">蔬菜拼盘</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">同行爆品 🔥</div>
+          <div style="color:var(--gold);font-weight:700">¥18</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🫓</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">脆哨土豆粑粑</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">贵州特色</div>
+          <div style="color:var(--gold);font-weight:700">¥15</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🍖</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">肖家精品软哨</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">贵州特色</div>
+          <div style="color:var(--gold);font-weight:700">¥24</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🫀</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">千层肚</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">↑ 热度增长4.6%</div>
+          <div style="color:var(--gold);font-weight:700">¥25</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🌿</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">自助蔬菜</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">↑ 热度增长5.1%</div>
+          <div style="color:var(--gold);font-weight:700">¥18</div>
+        </div>
+        <div class="card" style="padding:16px;text-align:center">
+          <div style="font-size:1.2rem;margin-bottom:6px">🐄</div>
+          <div style="font-size:0.85rem;color:var(--text);font-weight:600">藤椒牛舌</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin:4px 0">↑ 热度增长3.4%</div>
+          <div style="color:var(--gold);font-weight:700">¥28</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快驴合作亮点 -->
+    <div class="mt40">
+      <h3 style="font-size:0.95rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-left:12px;border-left:2px solid var(--gold)">🤝 快驴合作亮点</h3>
       <div class="grid-3">
         <div class="hl-card">
           <span class="hl-icon">🤝</span>
