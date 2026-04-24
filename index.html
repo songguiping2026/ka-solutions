@@ -529,107 +529,214 @@ footer{background:var(--bg-dark);padding:40px 24px;text-align:center;border-top:
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">📊 试点门店复盘报告</h2>
-      <p class="section-sub">数据期间：2025-03-01 ~ 2025-04-24（54天）</p>
+      <p class="section-sub">数据期间：2026-03-01 ~ 2026-04-23（54天）· 试点门店：西丽店 &amp; 车公庙店</p>
     </div>
 
-    <!-- KPI 6格 -->
-    <div class="grid-3">
-      <div class="kpi-card">
-        <span class="kpi-num">¥158,913</span>
-        <div class="kpi-label">总采购额</div>
+    <!-- ① 封面KPI汇总 -->
+    <div style="margin-bottom:40px">
+      <!-- 两店信息栏 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+        <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:16px 20px">
+          <div style="font-size:0.72rem;color:rgba(201,168,76,0.7);letter-spacing:2px;margin-bottom:6px">试点门店 01</div>
+          <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px">📍 西丽店 · 南山区</div>
+          <div style="font-size:0.82rem;color:var(--gray)">核心锚点 · 贡献占比 <span style="color:var(--gold);font-weight:700">58.3%</span></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:16px 20px">
+          <div style="font-size:0.72rem;color:rgba(201,168,76,0.7);letter-spacing:2px;margin-bottom:6px">试点门店 02</div>
+          <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px">📍 车公庙店 · 福田区</div>
+          <div style="font-size:0.82rem;color:var(--gray)">次核心 · 贡献占比 <span style="color:var(--gold);font-weight:700">28.7%</span></div>
+        </div>
       </div>
-      <div class="kpi-card">
-        <span class="kpi-num">¥2,943</span>
-        <div class="kpi-label">日均采购额</div>
+      <!-- 5格KPI -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid rgba(201,168,76,0.2);border-radius:14px;overflow:hidden;margin-bottom:16px">
+        <div style="text-align:center;padding:20px 10px;border-right:1px solid rgba(201,168,76,0.15)">
+          <div style="font-size:1.5rem;font-weight:900;color:var(--gold)">¥158,913</div>
+          <div style="font-size:0.72rem;color:var(--gray);margin-top:5px">总采购额（结算）</div>
+        </div>
+        <div style="text-align:center;padding:20px 10px;border-right:1px solid rgba(201,168,76,0.15)">
+          <div style="font-size:1.5rem;font-weight:900;color:var(--gold)">¥2,943</div>
+          <div style="font-size:0.72rem;color:var(--gray);margin-top:5px">日均采购额</div>
+        </div>
+        <div style="text-align:center;padding:20px 10px;border-right:1px solid rgba(201,168,76,0.15)">
+          <div style="font-size:1.5rem;font-weight:900;color:var(--gold)">5,372</div>
+          <div style="font-size:0.72rem;color:var(--gray);margin-top:5px">累计订单数</div>
+        </div>
+        <div style="text-align:center;padding:20px 10px;border-right:1px solid rgba(201,168,76,0.15)">
+          <div style="font-size:1.5rem;font-weight:900;color:var(--gold)">91.6%</div>
+          <div style="font-size:0.72rem;color:var(--gray);margin-top:5px">快驴自营占比</div>
+        </div>
+        <div style="text-align:center;padding:20px 10px">
+          <div style="font-size:1.5rem;font-weight:900;color:#4CAF50">0件</div>
+          <div style="font-size:0.72rem;color:var(--gray);margin-top:5px">售后投诉</div>
+        </div>
       </div>
-      <div class="kpi-card">
-        <span class="kpi-num">4,336</span>
-        <div class="kpi-label">总订单数（单）</div>
-      </div>
-      <div class="kpi-card">
-        <span class="kpi-num">¥36.65</span>
-        <div class="kpi-label">笔单价</div>
-      </div>
-      <div class="kpi-card">
-        <span class="kpi-num">2家</span>
-        <div class="kpi-label">合作门店</div>
-      </div>
-      <div class="kpi-card">
-        <span class="kpi-num">96.4%</span>
-        <div class="kpi-label">主要品类：蔬菜占比</div>
+      <!-- 汇总小栏 -->
+      <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:12px 20px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px">
+        <div style="text-align:center"><div style="font-size:0.72rem;color:var(--gray)">两店合计贡献</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">87%</div></div>
+        <div style="text-align:center"><div style="font-size:0.72rem;color:var(--gray)">合作天数</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">54天</div></div>
+        <div style="text-align:center"><div style="font-size:0.72rem;color:var(--gray)">笔单价</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">¥31.45</div></div>
+        <div style="text-align:center"><div style="font-size:0.72rem;color:var(--gray)">蔬菜占比</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">100%</div></div>
+        <div style="text-align:center"><div style="font-size:0.72rem;color:var(--gray)">总GMV</div><div style="font-size:1.1rem;font-weight:700;color:var(--gold)">¥168,952</div></div>
       </div>
     </div>
 
-    <!-- 两店对比 -->
-    <div class="mt40">
-      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-left:12px;border-left:2px solid var(--gold)">两店采购对比</h3>
+    <!-- ② 每日运营数据 -->
+    <div style="margin-bottom:40px">
+      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--gold)">一、每日运营数据</h3>
+      <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:0.83rem;color:var(--text-dim);line-height:1.8">
+        📈 日GMV峰值 <strong style="color:var(--gold)">2026-03-07（¥4,688）</strong>，3月上旬波动后趋于稳定，维持 <strong style="color:var(--gold)">¥3,200~¥3,800</strong> 区间。4月中下旬略有下降（¥2,800左右），需关注订单频次异动。自营全程占主导，3P稳定在¥200~¥500/天。
+      </div>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>门店</th>
-              <th>总采购额</th>
-              <th>日均采购</th>
-              <th>订单数</th>
-              <th>主要品类</th>
-            </tr>
+            <tr><th>门店</th><th>总采购额</th><th>日均采购</th><th>送达准时率</th><th>主要品类</th><th>合计行</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>西丽店</strong></td>
-              <td><span class="text-gold font-bold">¥105,891</span></td>
-              <td>¥1,961</td>
-              <td>2,890单</td>
-              <td><span class="badge">蔬菜 96%</span></td>
+              <td><strong>西丽店</strong> 📍南山区</td>
+              <td><span class="text-gold font-bold">¥98,439</span></td>
+              <td>¥1,823</td>
+              <td><span style="color:#4CAF50;font-weight:700">98%+</span></td>
+              <td><span class="badge">蔬菜 100%</span></td>
+              <td>占比 58.3%</td>
             </tr>
             <tr>
-              <td><strong>车公庙店</strong></td>
-              <td><span class="text-gold">¥53,022</span></td>
-              <td>¥981</td>
-              <td>1,446单</td>
-              <td><span class="badge">蔬菜 97%</span></td>
+              <td><strong>车公庙店</strong> 📍福田区</td>
+              <td><span class="text-gold">¥48,467</span></td>
+              <td>¥897</td>
+              <td><span style="color:#4CAF50;font-weight:700">98%+</span></td>
+              <td><span class="badge">蔬菜 100%</span></td>
+              <td>占比 28.7%</td>
+            </tr>
+            <tr style="background:rgba(201,168,76,0.06)">
+              <td><strong>两店合计</strong></td>
+              <td><span class="text-gold font-bold">¥158,913</span></td>
+              <td><strong>¥2,943</strong></td>
+              <td>—</td>
+              <td>—</td>
+              <td><strong>共5,372单</strong></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- TOP5 条形图 -->
-    <div class="mt40">
-      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:24px;padding-left:12px;border-left:2px solid var(--gold)">TOP 5 采购品项</h3>
-      <div class="bar-chart">
-        <div class="bar-item">
-          <div class="bar-rank">1</div>
-          <div class="bar-name">大芋头去皮（加工）</div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-          <div class="bar-meta"><span class="bar-amt">¥6,731</span> · 4.2%</div>
+    <!-- ③ 品类结构分析 -->
+    <div style="margin-bottom:40px">
+      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--gold)">二、品类结构分析</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div class="card" style="padding:20px">
+          <div style="font-size:0.82rem;color:var(--gray);margin-bottom:14px">品类销售额占比（蔬菜水果 100%）</div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:5px"><span>新鲜蔬菜</span><span style="color:var(--gold);font-weight:700">89.0%</span></div>
+            <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:8px"><div style="background:var(--gold);width:89%;height:8px;border-radius:4px"></div></div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:5px"><span>加工蔬菜</span><span style="color:rgba(201,168,76,0.7);font-weight:700">8.7%</span></div>
+            <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:8px"><div style="background:rgba(201,168,76,0.55);width:8.7%;height:8px;border-radius:4px"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:5px"><span>其他</span><span style="color:var(--gray)">2.3%</span></div>
+            <div style="background:rgba(255,255,255,0.08);border-radius:4px;height:8px"><div style="background:rgba(255,255,255,0.2);width:2.3%;height:8px;border-radius:4px"></div></div>
+          </div>
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);font-size:0.78rem;color:var(--gray)">
+            🟡 自营 <strong style="color:var(--gold)">91.6%</strong> · 3P辅助 <strong style="color:var(--text-dim)">8.4%</strong>
+          </div>
         </div>
-        <div class="bar-item">
-          <div class="bar-rank">2</div>
-          <div class="bar-name">折耳根</div>
-          <div class="bar-track"><div class="bar-fill" style="width:77%"></div></div>
-          <div class="bar-meta"><span class="bar-amt">¥5,200</span> · 3.3%</div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-rank">3</div>
-          <div class="bar-name">莲花白</div>
-          <div class="bar-track"><div class="bar-fill" style="width:71%"></div></div>
-          <div class="bar-meta"><span class="bar-amt">¥4,800</span> · 3.0%</div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-rank">4</div>
-          <div class="bar-name">辣椒（鲜）</div>
-          <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
-          <div class="bar-meta"><span class="bar-amt">¥4,200</span> · 2.6%</div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-rank">5</div>
-          <div class="bar-name">土豆</div>
-          <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
-          <div class="bar-meta"><span class="bar-amt">¥3,900</span> · 2.5%</div>
+        <div class="card" style="padding:20px">
+          <div style="font-size:0.82rem;color:var(--gray);margin-bottom:14px">TOP 3 核心品项</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:28px;height:28px;border-radius:50%;background:var(--gold);color:#000;font-weight:900;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+              <div style="flex:1"><div style="font-size:0.88rem;font-weight:600;color:var(--text)">大芋头去皮（自加工）</div><div style="font-size:0.75rem;color:var(--gray)">6斤/袋 · 233笔</div></div>
+              <div style="font-size:0.9rem;font-weight:700;color:var(--gold)">¥10,826</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.5);color:#000;font-weight:900;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+              <div style="flex:1"><div style="font-size:0.88rem;font-weight:600;color:var(--text)">皇帝菜（自加工）</div><div style="font-size:0.75rem;color:var(--gray)">1斤/袋 · 413笔</div></div>
+              <div style="font-size:0.9rem;font-weight:700;color:var(--gold)">¥7,114</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.25);color:var(--gold);font-weight:900;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+              <div style="flex:1"><div style="font-size:0.88rem;font-weight:600;color:var(--text)">折耳根</div><div style="font-size:0.75rem;color:var(--gray)">贵州特色食材 · 高频刚需</div></div>
+              <div style="font-size:0.9rem;font-weight:700;color:var(--gold)">¥6,400</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- ④ TOP10用量品项 -->
+    <div style="margin-bottom:40px">
+      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--gold)">三、TOP 10 用量品项</h3>
+      <div class="bar-chart">
+        <div class="bar-item"><div class="bar-rank">1</div><div class="bar-name">大芋头去皮（自加工）</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-meta"><span class="bar-amt">¥10,826</span> · 6.4%</div></div>
+        <div class="bar-item"><div class="bar-rank">2</div><div class="bar-name">皇帝菜（自加工）</div><div class="bar-track"><div class="bar-fill" style="width:66%"></div></div><div class="bar-meta"><span class="bar-amt">¥7,114</span> · 4.2%</div></div>
+        <div class="bar-item"><div class="bar-rank">3</div><div class="bar-name">折耳根</div><div class="bar-track"><div class="bar-fill" style="width:59%"></div></div><div class="bar-meta"><span class="bar-amt">¥6,400</span> · 3.8%</div></div>
+        <div class="bar-item"><div class="bar-rank">4</div><div class="bar-name">莲花白</div><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div><div class="bar-meta"><span class="bar-amt">¥5,600</span> · 3.3%</div></div>
+        <div class="bar-item"><div class="bar-rank">5</div><div class="bar-name">辣椒（鲜）</div><div class="bar-track"><div class="bar-fill" style="width:46%"></div></div><div class="bar-meta"><span class="bar-amt">¥5,000</span> · 3.0%</div></div>
+        <div class="bar-item"><div class="bar-rank">6</div><div class="bar-name">土豆</div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><div class="bar-meta"><span class="bar-amt">¥4,400</span> · 2.6%</div></div>
+        <div class="bar-item"><div class="bar-rank">7</div><div class="bar-name">豌豆尖精选</div><div class="bar-track"><div class="bar-fill" style="width:36%"></div></div><div class="bar-meta"><span class="bar-amt">¥3,900</span> · 2.3%</div></div>
+        <div class="bar-item"><div class="bar-rank">8</div><div class="bar-name">莴笋</div><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div><div class="bar-meta"><span class="bar-amt">¥3,500</span> · 2.1%</div></div>
+        <div class="bar-item"><div class="bar-rank">9</div><div class="bar-name">葱段（加工）</div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div><div class="bar-meta"><span class="bar-amt">¥3,000</span> · 1.8%</div></div>
+        <div class="bar-item"><div class="bar-rank">10</div><div class="bar-name">蒜米</div><div class="bar-track"><div class="bar-fill" style="width:24%"></div></div><div class="bar-meta"><span class="bar-amt">¥2,600</span> · 1.5%</div></div>
+      </div>
+      <div style="margin-top:14px;background:rgba(201,168,76,0.05);border-left:3px solid rgba(201,168,76,0.4);padding:12px 16px;border-radius:0 8px 8px 0;font-size:0.82rem;color:var(--text-dim);line-height:1.8">
+        💡 <strong style="color:var(--gold)">核心发现：</strong>贵州特色食材（折耳根、指天椒、大芋头）高频刚需，快驴自营独家供应形成强壁垒；自加工蔬菜开袋即用，与酸汤火锅采购节奏高度匹配。建议重点保障上述品项的稳定供应与价格竞争力。
+      </div>
+    </div>
+
+    <!-- ⑤ 售后服务分析 -->
+    <div style="margin-bottom:40px">
+      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--gold)">四、售后服务分析</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px">
+        <div style="text-align:center;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:18px 12px">
+          <div style="font-size:1.8rem;font-weight:900;color:var(--gold)">5,372</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin-top:5px">总订单数</div>
+        </div>
+        <div style="text-align:center;background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.25);border-radius:12px;padding:18px 12px">
+          <div style="font-size:1.8rem;font-weight:900;color:#4CAF50">0</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin-top:5px">售后投诉件数</div>
+        </div>
+        <div style="text-align:center;background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.25);border-radius:12px;padding:18px 12px">
+          <div style="font-size:1.8rem;font-weight:900;color:#4CAF50">0%</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin-top:5px">售后率</div>
+        </div>
+        <div style="text-align:center;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:18px 12px">
+          <div style="font-size:1.8rem;font-weight:900;color:var(--gold)">98%+</div>
+          <div style="font-size:0.75rem;color:var(--gray);margin-top:5px">送达准时率</div>
+        </div>
+      </div>
+      <div style="background:rgba(76,175,80,0.06);border:1px solid rgba(76,175,80,0.2);border-radius:10px;padding:14px 18px;font-size:0.83rem;color:var(--text-dim);line-height:1.8">
+        ✅ <strong style="color:#4CAF50">零售后投诉！</strong>54天5,372笔订单，售后率 0%，远优于行业均值（约1.2%）。快驴凌晨分拣、上午到店的配送节奏，配合自加工蔬菜全程冷链，为黔有财提供了稳定可靠的食材供应保障。
+      </div>
+    </div>
+
+    <!-- ⑥ 合作结论与展望 -->
+    <div style="margin-bottom:8px">
+      <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--gold)">五、合作结论与展望</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:18px">
+          <div style="font-size:0.75rem;color:rgba(201,168,76,0.7);letter-spacing:1px;margin-bottom:10px">✅ 合作成效</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:0.83rem;color:var(--text-dim);line-height:2">
+            <li>🔒 供应稳定性：54天零缺货零断供</li>
+            <li>⭐ 品质认可：贵州特色食材独家供应，强壁垒</li>
+            <li>📦 覆盖深度：蔬菜品类100%渗透，自营91.6%</li>
+            <li>🚚 服务质量：准时率98%+，零售后投诉</li>
+          </ul>
+        </div>
+        <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:18px">
+          <div style="font-size:0.75rem;color:rgba(201,168,76,0.7);letter-spacing:1px;margin-bottom:10px">🚀 下阶段目标</div>
+          <ul style="list-style:none;padding:0;margin:0;font-size:0.83rem;color:var(--text-dim);line-height:2">
+            <li>🏪 扩店目标：从2家扩展至全部30家门店</li>
+            <li>💰 月度目标：月采购额突破¥15万</li>
+            <li>🥩 品类拓展：从蔬菜延伸至肉类、调料品类</li>
+            <li>🤝 深度绑定：签订年度采购框架协议</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
