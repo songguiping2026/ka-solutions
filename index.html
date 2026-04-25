@@ -913,98 +913,172 @@ footer{background:var(--bg-dark);padding:40px 24px;text-align:center;border-top:
 
 
 <!-- ===== 模块四：快驴下单流程&菜品推荐 ===== -->
-<section id="order">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">🛒 快驴下单流程 &amp; 菜品推荐</h2>
-      <p class="section-sub">7步标准化下单流程 + 贵州酸汤火锅专属食材采购清单</p>
+<section id="order" style="background:#0D0820;padding:80px 0">
+  <div class="container" style="max-width:900px;margin:0 auto;padding:0 20px">
+    <!-- Section Header -->
+    <div style="margin-bottom:48px">
+      <div style="font-size:11px;letter-spacing:3px;color:#FF8C42;font-weight:600;margin-bottom:12px">ORDER PROCESS</div>
+      <h2 style="font-size:2rem;font-weight:800;color:#F5F0E8;border-left:4px solid #FF6B35;padding-left:16px;margin:0 0 8px 0">快驴进货下单流程指南</h2>
+      <p style="color:#9B7FD4;font-size:0.95rem;margin:8px 0 0 20px">7步标准化操作，食材采购更高效</p>
     </div>
 
-    <div class="grid-2">
-      <!-- 下单流程 -->
+    <!-- 主体区：左侧步骤 + 右侧说明 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px">
+      <!-- 左侧：7步下单流程 -->
       <div>
-        <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:24px;padding-left:12px;border-left:2px solid var(--gold)">📲 7步下单流程</h3>
-        <div class="steps-v">
-          <div class="step-v">
-            <div class="step-v-dot">1</div>
-            <div class="step-v-body">
-              <div class="step-v-title">打开快驴APP</div>
-              <div class="step-v-desc">登录门店账号，进入首页</div>
-            </div>
+        <!-- step 1 -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF8C42);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">1</div>
+            <div style="width:2px;height:28px;background:rgba(255,107,53,0.3);margin-top:4px"></div>
           </div>
-          <div class="step-v">
-            <div class="step-v-dot">2</div>
-            <div class="step-v-body">
-              <div class="step-v-title">选择商品分类</div>
-              <div class="step-v-desc">蔬菜、肉禽、水产、调料等一站式选购</div>
-            </div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#F5F0E8;margin-bottom:4px">打开快驴进货APP</div>
+            <div style="font-size:0.8rem;color:#9B7FD4">登录门店账号，进入首页</div>
           </div>
-          <div class="step-v">
-            <div class="step-v-dot">3</div>
-            <div class="step-v-body">
-              <div class="step-v-title">搜索或浏览商品</div>
-              <div class="step-v-desc">输入商品名称快速定位，查看规格和价格</div>
-            </div>
+        </div>
+        <!-- step 2 -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF8C42);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">2</div>
+            <div style="width:2px;height:28px;background:rgba(255,107,53,0.3);margin-top:4px"></div>
           </div>
-          <div class="step-v">
-            <div class="step-v-dot">4</div>
-            <div class="step-v-body">
-              <div class="step-v-title">加入购物车</div>
-              <div class="step-v-desc">选定数量加入购物车，支持批量下单</div>
-            </div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#F5F0E8;margin-bottom:4px">搜索或浏览商品</div>
+            <div style="font-size:0.8rem;color:#9B7FD4">输入商品名快速定位，或按分类浏览</div>
           </div>
-          <div class="step-v">
-            <div class="step-v-dot">5</div>
-            <div class="step-v-body">
-              <div class="step-v-title">确认订单</div>
-              <div class="step-v-desc">核对商品、规格、数量和配送时间</div>
-            </div>
+        </div>
+        <!-- step 3 -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF8C42);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">3</div>
+            <div style="width:2px;height:28px;background:rgba(255,107,53,0.3);margin-top:4px"></div>
           </div>
-          <div class="step-v">
-            <div class="step-v-dot">6</div>
-            <div class="step-v-body">
-              <div class="step-v-title">账户余额支付</div>
-              <div class="step-v-desc">一键支付，支持余额/对公预充值</div>
-            </div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#F5F0E8;margin-bottom:4px">加入购物车</div>
+            <div style="font-size:0.8rem;color:#9B7FD4">选定数量，点击加入购物车，支持批量下单</div>
           </div>
-          <div class="step-v" style="padding-bottom:0">
-            <div class="step-v-dot">7</div>
-            <div class="step-v-body">
-              <div class="step-v-title">等待配送到店</div>
-              <div class="step-v-desc">次日早晨配送到店，新鲜直达，验货签收</div>
-            </div>
+        </div>
+        <!-- step 4 -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF8C42);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">4</div>
+            <div style="width:2px;height:28px;background:rgba(255,107,53,0.3);margin-top:4px"></div>
+          </div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#F5F0E8;margin-bottom:4px">进入购物车确认</div>
+            <div style="font-size:0.8rem;color:#9B7FD4">核对商品、规格、数量</div>
+          </div>
+        </div>
+        <!-- step 5 -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF8C42);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">5</div>
+            <div style="width:2px;height:28px;background:rgba(255,107,53,0.3);margin-top:4px"></div>
+          </div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#F5F0E8;margin-bottom:4px">选择支付方式</div>
+            <div style="font-size:0.8rem;color:#9B7FD4">选择"账户余额支付"，余额不足请先充值</div>
+          </div>
+        </div>
+        <!-- step 6 -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF8C42);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">6</div>
+            <div style="width:2px;height:28px;background:rgba(255,107,53,0.3);margin-top:4px"></div>
+          </div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#F5F0E8;margin-bottom:4px">确认订单，提交</div>
+            <div style="font-size:0.8rem;color:#9B7FD4">确认配送时间和地址，点击提交订单</div>
+          </div>
+        </div>
+        <!-- step 7 -->
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2E7D32,#388E3C);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff">7</div>
+          </div>
+          <div style="padding-top:6px">
+            <div style="font-size:0.95rem;font-weight:700;color:#66BB6A;margin-bottom:4px">等待配送到店 🎉</div>
+            <div style="font-size:0.8rem;color:#81C784">次日早晨配送到店，新鲜直达，验货签收</div>
           </div>
         </div>
       </div>
 
-      <!-- 推荐采购清单 -->
-      <div>
-        <h3 style="font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-left:12px;border-left:2px solid var(--gold)">🍽️ 贵州酸汤火锅推荐采购清单</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>品类</th>
-                <th>推荐商品</th>
-                <th>用途</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="badge">蔬菜</span></td><td>大芋头、莲花白、土豆</td><td>火锅主料</td></tr>
-              <tr><td><span class="badge">特色</span></td><td>折耳根、鱼腥草</td><td>贵州特色菜</td></tr>
-              <tr><td><span class="badge">鲜辣</span></td><td>鲜辣椒、干辣椒</td><td>提味增香</td></tr>
-              <tr><td><span class="badge">菌菇</span></td><td>金针菇、香菇、木耳</td><td>火锅配菜</td></tr>
-              <tr><td><span class="badge">鲜肉</span></td><td>五花肉、牛肉片</td><td>主荤食材</td></tr>
-              <tr><td><span class="badge">鲜鱼</span></td><td>草鱼、鲫鱼</td><td>酸汤鱼主料</td></tr>
-              <tr><td><span class="badge">调味</span></td><td>酸汤调料、豆腐乳</td><td>特色底料</td></tr>
-              <tr><td><span class="badge">腌制</span></td><td>泡萝卜、酸笋</td><td>贵州腌菜</td></tr>
-            </tbody>
-          </table>
+      <!-- 右侧：APP界面说明 -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);border-radius:16px;padding:20px">
+          <div style="font-size:0.88rem;font-weight:600;color:#FF8C42;margin-bottom:12px">📱 APP操作要点</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="color:#FF6B35;font-weight:700;font-size:1rem">•</span>
+              <span style="font-size:0.82rem;color:#F5F0E8">首次下单建议晚上<strong style="color:#FF8C42">21:00前</strong>提交</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="color:#FF6B35;font-weight:700;font-size:1rem">•</span>
+              <span style="font-size:0.82rem;color:#F5F0E8">支付方式选<strong style="color:#FF8C42">"账户余额支付"</strong></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="color:#FF6B35;font-weight:700;font-size:1rem">•</span>
+              <span style="font-size:0.82rem;color:#F5F0E8">次日配送，建议提前<strong style="color:#FF8C42">1天</strong>下单</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="color:#FF6B35;font-weight:700;font-size:1rem">•</span>
+              <span style="font-size:0.82rem;color:#F5F0E8">可设置<strong style="color:#FF8C42">常用商品收藏</strong>，下次更快</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(46,125,50,0.1);border:1px solid rgba(46,125,50,0.3);border-radius:16px;padding:20px">
+          <div style="font-size:0.88rem;font-weight:600;color:#66BB6A;margin-bottom:12px">✅ 售后补采流程</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:0.8rem;color:#F5F0E8">发现问题 → <span style="color:#66BB6A">拍照留证</span> → 联系客服 → <span style="color:#66BB6A">补货/退款</span></div>
+            <div style="font-size:0.78rem;color:#81C784;margin-top:4px">24小时在线客服，10分钟内响应处理</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px">
+          <div style="font-size:0.88rem;font-weight:600;color:#C9A84C;margin-bottom:12px">💡 配送时间说明</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="text-align:center;background:rgba(201,168,76,0.1);border-radius:8px;padding:10px">
+              <div style="font-size:1.1rem;font-weight:700;color:#C9A84C">21:00</div>
+              <div style="font-size:0.72rem;color:#9B7FD4;margin-top:2px">截单时间</div>
+            </div>
+            <div style="text-align:center;background:rgba(201,168,76,0.1);border-radius:8px;padding:10px">
+              <div style="font-size:1.1rem;font-weight:700;color:#C9A84C">次日晨</div>
+              <div style="font-size:0.72rem;color:#9B7FD4;margin-top:2px">配送到店</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- 底部重要提醒 -->
+    <div style="background:linear-gradient(135deg,#1A2E5A,#22386E);border:1px solid rgba(201,168,76,0.3);border-radius:16px;padding:24px 28px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <span style="font-size:1.1rem">⚠️</span>
+        <span style="font-size:0.95rem;font-weight:700;color:#C9A84C">重要提醒</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:flex;align-items:flex-start;gap:8px">
+          <span style="color:#C9A84C;font-size:0.8rem;margin-top:2px">▶</span>
+          <span style="font-size:0.82rem;color:#F5F0E8">支付方式必须选择<strong style="color:#E6C96A">"账户余额支付"</strong>，请勿使用其他支付方式</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px">
+          <span style="color:#C9A84C;font-size:0.8rem;margin-top:2px">▶</span>
+          <span style="font-size:0.82rem;color:#F5F0E8">下单前确认余额充足，可充值后再下单</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px">
+          <span style="color:#C9A84C;font-size:0.8rem;margin-top:2px">▶</span>
+          <span style="font-size:0.82rem;color:#F5F0E8">如遇商品缺货，系统会自动提示，可选择替代品</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px">
+          <span style="color:#C9A84C;font-size:0.8rem;margin-top:2px">▶</span>
+          <span style="font-size:0.82rem;color:#F5F0E8">验货时发现问题，当场拍照，联系BD或客服处理</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
 
 <!-- ===== 模块五：公对公预充值 ===== -->
 <section id="recharge">
