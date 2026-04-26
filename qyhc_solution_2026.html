@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黔有财·贵州地摊酸汤火锅 | 快驴客户解决方案 2026</title>
+<style>
+:root{
+  --bg:#0D0820;--purple:#2D1B69;--purple-mid:#6B2FA0;
+  --gold:#C9A84C;--ivory:#F5F0E8;--red:#C0392B;--green:#27AE60;
+  --card-bg:rgba(255,255,255,0.05);--card-border:rgba(201,168,76,0.2);
+  --muted:rgba(255,255,255,0.45);--sec:rgba(255,255,255,0.7);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ivory);font-family:'Microsoft YaHei','PingFang SC',sans-serif;overflow-x:hidden;line-height:1.6;}
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),#E8C96B);z-index:9999;width:0%;transition:width 0.1s;}
+nav{position:sticky;top:0;z-index:1000;background:rgba(13,8,32,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border);padding:0 2rem;}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{font-size:1rem;font-weight:900;color:var(--gold);white-space:nowrap;}
+.nav-links{display:flex;gap:1.5rem;overflow-x:auto;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;white-space:nowrap;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.container{max-width:1300px;margin:0 auto;padding:0 1.5rem;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,#1a0a40 0%,#0D0820 70%);}
+.stars{position:absolute;inset:0;}
+.star{position:absolute;border-radius:50%;background:var(--gold);animation:twinkle 3s infinite;}
+@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:1;transform:scale(1.5);}}
+.hero-content{position:relative;z-index:1;}
+.hero-tag{display:inline-block;background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:0.4rem 1.2rem;font-size:0.78rem;color:var(--gold);margin-bottom:2rem;letter-spacing:2px;}
+.hero-title{font-size:clamp(2rem,6vw,4rem);font-weight:900;line-height:1.2;margin-bottom:1rem;}
+.hero-title .brand{color:var(--gold);}
+.hero-title .sub{display:block;font-size:clamp(1rem,3vw,1.8rem);color:var(--sec);font-weight:400;margin-top:0.5rem;}
+.hero-slogan{font-size:clamp(1.2rem,3vw,1.8rem);color:#E8736C;font-weight:900;margin:1.5rem 0;letter-spacing:4px;}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3rem;flex-wrap:wrap;}
+.hero-stat{text-align:center;}
+.hero-stat-num{font-size:2rem;font-weight:900;color:var(--gold);}
+.hero-stat-label{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;}
+
+/* SECTION */
+section{padding:5rem 0;}
+.section-title{font-size:1.6rem;font-weight:900;color:var(--gold);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;}
+.section-sub{font-size:0.9rem;color:var(--muted);margin-bottom:2.5rem;}
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:1.8rem;}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-bottom:2rem;}
+.kpi-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;text-align:center;transition:transform 0.3s;}
+.kpi-card:hover{transform:translateY(-4px);}
+.kpi-label{font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;letter-spacing:1px;}
+.kpi-value{font-size:1.8rem;font-weight:900;color:var(--gold);}
+.kpi-unit{font-size:0.8rem;color:var(--sec);margin-top:0.3rem;}
+
+/* 品牌档案 */
+.brand-header{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;}
+.slogan-box{background:linear-gradient(135deg,#3a1a00,#1a0a20);border:2px solid var(--gold);border-radius:20px;padding:2rem;text-align:center;}
+.slogan-text{font-size:2rem;font-weight:900;color:var(--gold);letter-spacing:6px;margin-bottom:0.5rem;}
+.slogan-en{font-size:0.85rem;color:var(--muted);letter-spacing:3px;}
+.brand-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;}
+.tag{background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:0.3rem 0.8rem;font-size:0.75rem;color:var(--gold);}
+.province-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0;}
+.prov-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:1rem;text-align:center;}
+.prov-name{font-size:0.85rem;color:var(--sec);margin-bottom:0.3rem;}
+.prov-num{font-size:1.5rem;font-weight:900;color:var(--gold);}
+.prov-pct{font-size:0.75rem;color:var(--muted);}
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:0.5rem;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),transparent);}
+.tl-item{position:relative;margin-bottom:1rem;padding:0.8rem 1rem;background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;}
+.tl-item::before{content:'';position:absolute;left:-1.75rem;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);}
+.tl-date{font-size:0.75rem;color:var(--gold);font-weight:700;}
+.tl-content{font-size:0.85rem;color:var(--sec);}
+.tl-highlight{color:var(--green);font-weight:700;}
+
+/* 门店对比 */
+.store-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.store-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:1.8rem;}
+.store-name{font-size:1.1rem;font-weight:700;color:var(--gold);margin-bottom:0.5rem;}
+.store-area{font-size:0.8rem;color:var(--muted);margin-bottom:1rem;}
+.store-sales{font-size:2rem;font-weight:900;color:var(--ivory);margin-bottom:0.5rem;}
+.bar-wrap{background:rgba(255,255,255,0.1);border-radius:4px;height:8px;margin-top:0.8rem;}
+.bar-fill{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--gold),#E8C96B);transition:width 1.5s ease;}
+
+/* 热门菜品 */
+.menu-table{width:100%;border-collapse:collapse;}
+.menu-table th{text-align:left;padding:0.8rem 1rem;font-size:0.78rem;color:var(--muted);border-bottom:1px solid var(--card-border);font-weight:400;}
+.menu-table td{padding:0.75rem 1rem;font-size:0.85rem;border-bottom:1px solid rgba(255,255,255,0.05);}
+.menu-table tr:hover td{background:rgba(255,255,255,0.03);}
+.heat-bar-wrap{width:120px;background:rgba(255,255,255,0.1);border-radius:4px;height:6px;display:inline-block;vertical-align:middle;}
+.heat-bar{height:6px;border-radius:4px;background:linear-gradient(90deg,#E8736C,var(--gold));}
+.badge{display:inline-block;background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);border-radius:4px;padding:0.1rem 0.4rem;font-size:0.7rem;color:var(--gold);margin-left:0.3rem;}
+.badge-red{background:rgba(192,57,43,0.2);border-color:rgba(192,57,43,0.4);color:#E8736C;}
+.growth-up{color:var(--green);}
+
+/* 品类 */
+.category-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+.cat-legend{margin-top:1rem;}
+.cat-legend-item{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;font-size:0.82rem;}
+.cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cat-name{color:var(--sec);flex:1;}
+.cat-pct{color:var(--gold);font-weight:700;}
+.h-bar-row{display:flex;align-items:center;gap:0.8rem;margin-bottom:0.7rem;}
+.h-bar-label{width:80px;font-size:0.75rem;color:var(--sec);text-align:right;flex-shrink:0;}
+.h-bar-outer{flex:1;background:rgba(255,255,255,0.1);border-radius:4px;height:20px;position:relative;overflow:hidden;}
+.h-bar-inner{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--purple-mid),var(--gold));transition:width 1.5s ease;display:flex;align-items:center;padding-left:0.5rem;}
+.h-bar-val{font-size:0.7rem;color:#fff;font-weight:700;}
+
+/* SKU表格 */
+.sku-table{width:100%;border-collapse:collapse;}
+.sku-table th{text-align:left;padding:0.7rem 0.8rem;font-size:0.75rem;color:var(--muted);border-bottom:1px solid var(--card-border);font-weight:400;}
+.sku-table td{padding:0.6rem 0.8rem;font-size:0.82rem;border-bottom:1px solid rgba(255,255,255,0.04);}
+.sku-table tr:hover td{background:rgba(255,255,255,0.03);}
+.rank-num{width:24px;height:24px;border-radius:50%;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);display:inline-flex;align-items:center;justify-content:center;font-size:0.72rem;color:var(--gold);font-weight:700;}
+.rank-top3{background:rgba(201,168,76,0.35);border-color:var(--gold);}
+.mini-bar-wrap{width:80px;background:rgba(255,255,255,0.1);border-radius:3px;height:5px;display:inline-block;vertical-align:middle;}
+.mini-bar{height:5px;border-radius:3px;background:var(--gold);}
+
+/* SPU专区 */
+.spu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem;}
+.spu-col{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;}
+.spu-col-title{font-size:0.9rem;font-weight:700;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--card-border);}
+.spu-item{display:flex;align-items:center;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.82rem;}
+.spu-item:last-child{border-bottom:none;}
+.spu-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.spu-pct{font-size:0.7rem;color:var(--muted);margin-left:auto;}
+.checklist{list-style:none;}
+.checklist li{display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.85rem;cursor:pointer;}
+.checklist li input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;}
+.checklist li:hover{color:var(--gold);}
+.check-group-title{font-size:0.85rem;font-weight:700;color:var(--gold);margin:1rem 0 0.5rem;letter-spacing:1px;}
+
+/* 售后 */
+.after-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.after-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;text-align:center;}
+.after-card-val{font-size:1.8rem;font-weight:900;margin-bottom:0.3rem;}
+.after-card-label{font-size:0.75rem;color:var(--muted);}
+.service-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.service-item{background:rgba(39,174,96,0.08);border:1px solid rgba(39,174,96,0.2);border-radius:12px;padding:1rem;}
+.service-icon{font-size:1.3rem;margin-bottom:0.4rem;}
+.service-title{font-size:0.85rem;font-weight:700;color:var(--green);margin-bottom:0.3rem;}
+.service-desc{font-size:0.78rem;color:var(--sec);}
+
+/* 合作建议 */
+.suggest-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.sh-card{background:linear-gradient(135deg,rgba(45,27,105,0.5),rgba(13,8,32,0.8));border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;text-align:center;}
+.sh-num{font-size:2rem;font-weight:900;color:var(--gold);}
+.sh-label{font-size:0.75rem;color:var(--muted);margin-top:0.3rem;}
+.suggest-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+.suggest-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:2rem;position:relative;overflow:hidden;}
+.suggest-card::before{content:attr(data-num);font-size:4rem;font-weight:900;color:rgba(201,168,76,0.08);position:absolute;top:0.5rem;right:1rem;line-height:1;}
+.suggest-icon{font-size:2rem;margin-bottom:0.8rem;}
+.suggest-title{font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:1rem;}
+.suggest-list{list-style:none;}
+.suggest-list li{font-size:0.82rem;color:var(--sec);padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:0.5rem;}
+.suggest-list li::before{content:'▸';color:var(--gold);flex-shrink:0;}
+
+/* 数据洞察框 */
+.insight-box{background:rgba(45,27,105,0.3);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:1.2rem 1.5rem;margin-top:1.5rem;font-size:0.85rem;color:var(--sec);line-height:1.8;}
+
+/* footer */
+footer{border-top:1px solid var(--card-border);padding:3rem 0;text-align:center;}
+.footer-logo{font-size:1.1rem;font-weight:700;color:var(--gold);margin-bottom:0.5rem;}
+.footer-meta{font-size:0.75rem;color:var(--muted);line-height:2;}
+
+/* fade in */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* responsive */
+@media(max-width:768px){
+  .brand-header,.store-grid,.category-grid,.spu-grid,.suggest-cards,.suggest-hero,.after-grid{grid-template-columns:1fr;}
+  .province-grid{grid-template-columns:repeat(2,1fr);}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🔥 黔有财 × 快驴进货</div>
+    <div class="nav-links">
+      <a href="#brand">品牌档案</a>
+      <a href="#dashboard">数据看板</a>
+      <a href="#trend">趋势</a>
+      <a href="#stores">门店</a>
+      <a href="#menu">菜品</a>
+      <a href="#category">品类</a>
+      <a href="#sku">SKU榜</a>
+      <a href="#spu">选品方案</a>
+      <a href="#aftersale">售后</a>
+      <a href="#suggest">合作建议</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-tag">快驴进货 · 专属合作方案 · 2026年3-4月</div>
+    <h1 class="hero-title">
+      <span class="brand">黔有财</span>
+      <span class="sub">贵州地摊酸汤火锅 · QIANYOUCAI</span>
+    </h1>
+    <div class="hero-slogan">吃了黔有财，今年必发财</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-countup="152028" data-prefix="¥" data-suffix="">152,028</div>
+        <div class="hero-stat-label">总销售额</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-countup="4314">4,314</div>
+        <div class="hero-stat-label">总订单数</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-countup="30">30</div>
+        <div class="hero-stat-label">品牌门店数</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-countup="54">54</div>
+        <div class="hero-stat-label">合作天数</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌档案 -->
+<section id="brand">
+  <div class="container">
+    <div class="section-title fade-in">🏮 品牌档案</div>
+    <div class="section-sub fade-in">贵州地摊酸汤火锅 · 30家连锁 · 广东核心战场</div>
+
+    <div class="brand-header fade-in">
+      <div class="slogan-box">
+        <div class="slogan-text">吃了黔有财 今年必发财</div>
+        <div class="slogan-en">EAT AT QIANYOUCAI · PROSPER THIS YEAR</div>
+        <div class="brand-tags">
+          <span class="tag">贵州酸汤</span>
+          <span class="tag">地摊风格</span>
+          <span class="tag">火锅连锁</span>
+          <span class="tag">广东集中</span>
+          <span class="tag">自助蔬菜</span>
+          <span class="tag">差异化定位</span>
+        </div>
+        <div style="margin-top:1.5rem;font-size:0.85rem;color:var(--sec);line-height:1.8;">
+          黔有财主打贵州地摊风酸汤火锅，以贵州特色酸汤锅底为核心差异化卖点，搭配自助蔬菜模式。现已在全国开设30家门店，覆盖4省9市，其中广东26家占86.7%，深圳为核心战场。2025年起加速扩张，年内连续开店，目前深圳车公庙、西丽两店已接入快驴进货，构建稳定食材供应体系。
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1.2rem;">
+          <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">📍 省份分布</div>
+          <div class="province-grid">
+            <div class="prov-card">
+              <div class="prov-name">广东省</div>
+              <div class="prov-num">26</div>
+              <div class="prov-pct">86.7% · 居民社区店</div>
+            </div>
+            <div class="prov-card">
+              <div class="prov-name">福建省</div>
+              <div class="prov-num">2</div>
+              <div class="prov-pct">6.7% · 酒店周边店</div>
+            </div>
+            <div class="prov-card">
+              <div class="prov-name">湖北省</div>
+              <div class="prov-num">1</div>
+              <div class="prov-pct">3.3% · 写字楼店</div>
+            </div>
+            <div class="prov-card">
+              <div class="prov-name">广西</div>
+              <div class="prov-num">1</div>
+              <div class="prov-pct">3.3% · 商业街店</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">⚡ 战场洞察</div>
+          <div style="font-size:0.83rem;color:var(--sec);line-height:1.9;">
+            深圳车公庙（福田核心商圈）+ 西丽（南山科技园周边）是黔有财华南拓展的双桥头堡。两店均位于高密度餐饮消费区，每月产生约 <span style="color:var(--gold);font-weight:700;">¥2.8万</span> 食材采购规模。未来每新增1家门店即新增约<span style="color:var(--gold);font-weight:700;">¥1.4万/月</span>采购入口，快驴优先锁定深圳市场，复制成功再全国推广。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">📅 拓店里程碑</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;">
+        <div class="tl-item"><span class="tl-date">2026-02</span> <span class="tl-content"><span class="tl-highlight">新开3家</span> 进入新城市</span></div>
+        <div class="tl-item"><span class="tl-date">2026-01</span> <span class="tl-content"><span class="tl-highlight">新开1家</span></span></div>
+        <div class="tl-item"><span class="tl-date">2025-12</span> <span class="tl-content"><span class="tl-highlight">新开2家</span> 年末冲刺</span></div>
+        <div class="tl-item"><span class="tl-date">2025-08</span> <span class="tl-content"><span class="tl-highlight">新开3家</span> 夏季扩张</span></div>
+        <div class="tl-item"><span class="tl-date">2025-06</span> <span class="tl-content"><span class="tl-highlight">新开2家</span></span></div>
+        <div class="tl-item"><span class="tl-date">2025-05</span> <span class="tl-content"><span class="tl-highlight">新开3家</span> 快速起量</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 总览仪表盘 -->
+<section id="dashboard" style="background:rgba(45,27,105,0.1);">
+  <div class="container">
+    <div class="section-title fade-in">🏠 总览仪表盘</div>
+    <div class="section-sub fade-in">2026-03-01 ~ 2026-04-23 · 54天数据汇总</div>
+    <div class="kpi-grid fade-in">
+      <div class="kpi-card">
+        <div class="kpi-label">总销售额</div>
+        <div class="kpi-value" data-countup="15.2" data-suffix="万">¥15.2万</div>
+        <div class="kpi-unit">GMV ¥15.9万</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">总订单数</div>
+        <div class="kpi-value" data-countup="4314">4,314笔</div>
+        <div class="kpi-unit">54天累计</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">接入门店</div>
+        <div class="kpi-value" data-countup="2">2家</div>
+        <div class="kpi-unit">车公庙 + 西丽</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">日均销售额</div>
+        <div class="kpi-value" data-countup="2815" data-prefix="¥">¥2,815</div>
+        <div class="kpi-unit">两店合计</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">笔单价</div>
+        <div class="kpi-value" data-countup="35.24" data-prefix="¥">¥35.24</div>
+        <div class="kpi-unit">每笔订单均值</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">售后率</div>
+        <div class="kpi-value" style="color:var(--green);" data-countup="0.67" data-suffix="%">0.67%</div>
+        <div class="kpi-unit">行业参考3-5%</div>
+      </div>
+    </div>
+    <div class="insight-box fade-in">
+      📊 <strong>数据解读：</strong>54天内2家门店累计产生4,314笔订单、总销售额¥152,028，日均¥2,815。笔单价¥35.24，以蔬菜品类为核心，高频次小额补货模式（每天约80笔）。售后率仅0.67%，远低于行业3-5%基准，品质稳定可靠。西丽店采购规模是车公庙店的2倍，为第一大核心门店。
+    </div>
+  </div>
+</section>
+
+<!-- 月度趋势 -->
+<section id="trend">
+  <div class="container">
+    <div class="section-title fade-in">📈 月度销售趋势</div>
+    <div class="section-sub fade-in">2026年3月 vs 4月（截至23日）· 两店对比</div>
+    <div class="card fade-in">
+      <canvas id="trendCanvas" height="260" style="width:100%;"></canvas>
+      <div style="display:flex;gap:2rem;justify-content:center;margin-top:1rem;">
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;"><span style="width:20px;height:3px;background:#C9A84C;display:inline-block;border-radius:2px;"></span>西丽店</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;"><span style="width:20px;height:3px;background:#6B2FA0;display:inline-block;border-radius:2px;"></span>车公庙店</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;"><span style="width:20px;height:3px;background:#27AE60;display:inline-block;border-radius:2px;"></span>合计</div>
+      </div>
+    </div>
+    <div class="insight-box fade-in" style="margin-top:1.5rem;">
+      📊 <strong>趋势洞察：</strong>3月两店合计¥91,816，4月（23天）已达¥60,211，日均¥2,618（4月）vs ¥2,962（3月），整体稳定。西丽店持续领跑，4月体量已相当于3月的66%，按节奏预计4月全月可达¥77,000+。
+    </div>
+  </div>
+</section>
+
+<!-- 门店对比 -->
+<section id="stores" style="background:rgba(45,27,105,0.1);">
+  <div class="container">
+    <div class="section-title fade-in">🗺️ 门店分析</div>
+    <div class="section-sub fade-in">深圳2家合作门店对比</div>
+    <div class="store-grid fade-in">
+      <div class="store-card">
+        <div class="store-name">🏪 西丽店</div>
+        <div class="store-area">📍 深圳市南山区 · 科技园周边</div>
+        <div class="store-sales">¥101,145.50</div>
+        <div style="font-size:0.8rem;color:var(--muted);">占总采购 66.5%</div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="66.5"></div></div>
+        <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.8rem;text-align:center;">
+            <div style="font-size:1.2rem;font-weight:700;color:var(--gold);">¥60,817</div>
+            <div style="font-size:0.72rem;color:var(--muted);">3月销售额</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.8rem;text-align:center;">
+            <div style="font-size:1.2rem;font-weight:700;color:var(--gold);">¥40,329</div>
+            <div style="font-size:0.72rem;color:var(--muted);">4月（截至23日）</div>
+          </div>
+        </div>
+      </div>
+      <div class="store-card">
+        <div class="store-name">🏪 车公庙店</div>
+        <div class="store-area">📍 深圳市福田区 · 核心商圈</div>
+        <div class="store-sales">¥50,882.48</div>
+        <div style="font-size:0.8rem;color:var(--muted);">占总采购 33.5%</div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="33.5"></div></div>
+        <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;">
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.8rem;text-align:center;">
+            <div style="font-size:1.2rem;font-weight:700;color:var(--gold);">¥31,000</div>
+            <div style="font-size:0.72rem;color:var(--muted);">3月销售额</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.8rem;text-align:center;">
+            <div style="font-size:1.2rem;font-weight:700;color:var(--gold);">¥19,883</div>
+            <div style="font-size:0.72rem;color:var(--muted);">4月（截至23日）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 热门菜品 -->
+<section id="menu">
+  <div class="container">
+    <div class="section-title fade-in">🍽️ 品牌热门菜品</div>
+    <div class="section-sub fade-in">美团外卖平台数据 · TOP11爆品 · 食材与快驴供应匹配分析</div>
+    <div class="card fade-in">
+      <table class="menu-table">
+        <thead>
+          <tr>
+            <th style="width:40px;">#</th>
+            <th>菜品名称</th>
+            <th>售价</th>
+            <th>人气指数</th>
+            <th>热度增长</th>
+            <th>快驴供应关联</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="rank-num rank-top3">1</span></td><td>招牌酸汤锅 <span class="badge">同行爆品</span></td><td style="color:var(--gold)">¥28</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:100%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 999</span></td><td class="growth-up">↑3.4%</td><td style="font-size:0.75rem;color:var(--muted);">酸汤底料/辣椒</td></tr>
+          <tr><td><span class="rank-num rank-top3">2</span></td><td>鲜切牛肉 <span class="badge">同行爆品</span></td><td style="color:var(--gold)">¥26</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:89%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 889</span></td><td class="growth-up">↑3.7%</td><td style="font-size:0.75rem;color:var(--muted);">鲜牛肉（快驴冰鲜）</td></tr>
+          <tr><td><span class="rank-num rank-top3">3</span></td><td>蔬菜拼盘 <span class="badge">同行爆品</span></td><td style="color:var(--gold)">¥18</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:74%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 743</span></td><td class="growth-up">↑3.8%</td><td style="font-size:0.75rem;color:var(--muted);">✅ 多品蔬菜（快驴主力供应）</td></tr>
+          <tr><td><span class="rank-num">4</span></td><td>脆哨土豆粑粑</td><td style="color:var(--gold)">¥15</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:70%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 704</span></td><td class="growth-up">↑2.9%</td><td style="font-size:0.75rem;color:var(--muted);">黄心土豆（自加工）✅</td></tr>
+          <tr><td><span class="rank-num">5</span></td><td>肖家精品软哨</td><td style="color:var(--gold)">¥24</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:66%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 661</span></td><td class="growth-up">↑3.1%</td><td style="font-size:0.75rem;color:var(--muted);">猪肉辅料</td></tr>
+          <tr><td><span class="rank-num">6</span></td><td>千层肚</td><td style="color:var(--gold)">¥25</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:65%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 655</span></td><td class="growth-up">↑4.5%</td><td style="font-size:0.75rem;color:var(--muted);">牛肚（快驴可扩品）</td></tr>
+          <tr><td><span class="rank-num">7</span></td><td>自助蔬菜</td><td style="color:var(--gold)">¥18</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:60%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 602</span></td><td class="growth-up">↑5.1%</td><td style="font-size:0.75rem;color:var(--muted);">✅ 自助蔬菜台（快驴核心供应）</td></tr>
+          <tr><td><span class="rank-num">8</span></td><td>藤椒牛舌</td><td style="color:var(--gold)">¥28</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:59%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 593</span></td><td class="growth-up">↑3.3%</td><td style="font-size:0.75rem;color:var(--muted);">牛舌（快驴可扩品）</td></tr>
+          <tr><td><span class="rank-num">9</span></td><td>现拌嫩牛肉</td><td style="color:var(--gold)">¥22</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:59%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 589</span></td><td class="growth-up">↑5.2%</td><td style="font-size:0.75rem;color:var(--muted);">鲜牛肉</td></tr>
+          <tr><td><span class="rank-num">10</span></td><td>玉米粑粑</td><td style="color:var(--gold)">¥16</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:54%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 543</span></td><td class="growth-up">↑6.3%</td><td style="font-size:0.75rem;color:var(--muted);">✅ 台玉米去皮（自加工）</td></tr>
+          <tr><td><span class="rank-num">11</span></td><td>脆哨丸子</td><td style="color:var(--gold)">¥22</td><td><div class="heat-bar-wrap"><div class="heat-bar" style="width:54%"></div></div> <span style="color:var(--muted);font-size:0.75rem;"> 541</span></td><td class="growth-up">↑2.8%</td><td style="font-size:0.75rem;color:var(--muted);">火锅丸料（快驴可扩品）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight-box fade-in" style="margin-top:1.5rem;">
+      🍽️ <strong>菜品洞察：</strong>TOP3均为"同行爆品"，蔬菜拼盘和自助蔬菜合计占据2席，直接对应快驴蔬菜供应占比84.9%，数据高度吻合。黄心土豆、台玉米均在快驴TOP SKU榜单中，食材与菜品高度匹配。千层肚、藤椒牛舌等牛杂品类热度上升，具备向快驴肉类品类延伸的潜力。
+    </div>
+  </div>
+</section>
+
+<!-- 品类结构 -->
+<section id="category" style="background:rgba(45,27,105,0.1);">
+  <div class="container">
+    <div class="section-title fade-in">📦 品类结构分析</div>
+    <div class="section-sub fade-in">二级类目饼图 + 三级类目TOP10排行</div>
+    <div class="category-grid fade-in">
+      <div class="card">
+        <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">品类销售额占比（二级类目）</div>
+        <canvas id="pieCanvas" width="300" height="300" style="max-width:300px;display:block;margin:0 auto;"></canvas>
+        <div class="cat-legend" id="catLegend"></div>
+      </div>
+      <div class="card">
+        <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">三级类目 TOP10（销售额）</div>
+        <div id="hbarChart"></div>
+      </div>
+    </div>
+    <div class="insight-box fade-in" style="margin-top:1.5rem;">
+      📦 <strong>品类洞察：</strong>新鲜蔬菜+加工蔬菜合计占比94.5%，是绝对核心品类。快驴自加工产品（去皮/去根/开袋即用）在TOP20 SKU中高度集中，完美契合黔有财自助蔬菜台和火锅涮菜的经营模式。蔬菜品类SKU超过35个，品种丰富度高，快驴供应链稳定性是关键价值。
+    </div>
+  </div>
+</section>
+
+<!-- TOP20 SKU -->
+<section id="sku">
+  <div class="container">
+    <div class="section-title fade-in">🔥 TOP20 SKU 采购榜</div>
+    <div class="section-sub fade-in">按销售额排名 · 2026年3-4月</div>
+    <div class="card fade-in">
+      <table class="sku-table">
+        <thead>
+          <tr>
+            <th style="width:40px;">#</th>
+            <th>SKU名称</th>
+            <th>销售额</th>
+            <th>件数</th>
+            <th>占比</th>
+          </tr>
+        </thead>
+        <tbody id="skuTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SPU选品专区 -->
+<section id="spu" style="background:rgba(45,27,105,0.1);">
+  <div class="container">
+    <div class="section-title fade-in">🛒 SPU选品专区</div>
+    <div class="section-sub fade-in">新店开业必备采购方案 · 单店月均预算模拟</div>
+    <div class="spu-grid fade-in">
+      <div class="spu-col">
+        <div class="spu-col-title" style="color:#E8736C;">🔴 必选品（TOP10 核心SKU）</div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>大芋头去皮（自加工）<span class="spu-pct">7.1%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>香菇 优质（自加工）<span class="spu-pct">4.4%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>西红柿 优质（自加工）<span class="spu-pct">4.4%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>皇帝菜（自加工）<span class="spu-pct">4.1%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>紫白菜（自加工）<span class="spu-pct">3.8%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>香菜 优质（自加工）<span class="spu-pct">3.5%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>台玉米 去皮（自加工）<span class="spu-pct">3.3%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>红苋菜（自加工）<span class="spu-pct">3.2%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>黄心土豆（自加工）<span class="spu-pct">3.1%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:#E8736C;"></span>蒜米整包（自加工）<span class="spu-pct">2.9%</span></div>
+      </div>
+      <div class="spu-col">
+        <div class="spu-col-title" style="color:var(--gold);">🟡 推荐品（特色差异化品项）</div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>鱼腥草/折耳根（自加工）<span class="spu-pct">2.5%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>金针菇（自加工）<span class="spu-pct">2.3%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>海鲜菇（自加工）<span class="spu-pct">2.1%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>秀珍菇 普通（自加工）<span class="spu-pct">2.2%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>紫贝菜（自加工）<span class="spu-pct">2.0%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>莴笋（去叶去皮）真空<span class="spu-pct">2.5%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>葱/毛葱（自加工）<span class="spu-pct">2.4%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>豌豆尖精选<span class="spu-pct">2.2%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--gold);"></span>优质实心芹菜（自加工）<span class="spu-pct">1.9%</span></div>
+      </div>
+      <div class="spu-col">
+        <div class="spu-col-title" style="color:var(--green);">🟢 可选品（补充/季节性）</div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>豌豆苗（自加工）<span class="spu-pct">2.3%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>魔芋豆腐（5斤）<span class="spu-pct">1.6%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>圣女果 优质<span class="spu-pct">1.2%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>鱼腥草根<span class="spu-pct">1.0%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>豆腐类（多品）<span class="spu-pct">0.6%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>冰鲜水产（季节）<span class="spu-pct">0.8%</span></div>
+        <div class="spu-item"><span class="spu-dot" style="background:var(--green);"></span>一次性餐具<span class="spu-pct">0.2%</span></div>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="margin-bottom:1.5rem;">
+      <div style="font-size:0.9rem;font-weight:700;color:var(--gold);margin-bottom:1rem;">📊 新店首月采购预算模拟（单店月均约¥2.8万）</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.8rem;">
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.8rem;text-align:center;"><div style="font-size:1.1rem;font-weight:700;color:var(--gold);">¥8,760</div><div style="font-size:0.72rem;color:var(--muted);">叶菜类 31.1%</div></div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.8rem;text-align:center;"><div style="font-size:1.1rem;font-weight:700;color:var(--gold);">¥4,750</div><div style="font-size:0.72rem;color:var(--muted);">菌类 16.9%</div></div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.8rem;text-align:center;"><div style="font-size:1.1rem;font-weight:700;color:var(--gold);">¥3,460</div><div style="font-size:0.72rem;color:var(--muted);">茄果类 12.3%</div></div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.8rem;text-align:center;"><div style="font-size:1.1rem;font-weight:700;color:var(--gold);">¥3,430</div><div style="font-size:0.72rem;color:var(--muted);">特菜 12.2%</div></div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.8rem;text-align:center;"><div style="font-size:1.1rem;font-weight:700;color:var(--gold);">¥2,700</div><div style="font-size:0.72rem;color:var(--muted);">加工蔬菜 9.6%</div></div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.8rem;text-align:center;"><div style="font-size:1.1rem;font-weight:700;color:var(--gold);">¥1,630</div><div style="font-size:0.72rem;color:var(--muted);">葱姜蒜 5.8%</div></div>
+      </div>
+    </div>
+
+    <div class="card fade-in">
+      <div style="font-size:0.9rem;font-weight:700;color:var(--gold);margin-bottom:1rem;">✅ 开业采购 Check List</div>
+      <div class="check-group-title">📦 开业前3天备货</div>
+      <ul class="checklist">
+        <li><input type="checkbox"> 大芋头去皮（自加工）· 建议备2-3箱</li>
+        <li><input type="checkbox"> 香菇优质 · 10斤×2袋</li>
+        <li><input type="checkbox"> 西红柿优质 · 5斤×3袋</li>
+        <li><input type="checkbox"> 皇帝菜 · 5斤×2袋</li>
+        <li><input type="checkbox"> 紫白菜 · 5斤×1袋</li>
+        <li><input type="checkbox"> 香菜优质 · 2斤×3袋</li>
+        <li><input type="checkbox"> 台玉米去皮 · 5斤×2袋</li>
+        <li><input type="checkbox"> 红苋菜 · 5斤×2袋</li>
+        <li><input type="checkbox"> 黄心土豆 · 5斤×3袋</li>
+        <li><input type="checkbox"> 蒜米整包7斤 · 2包</li>
+        <li><input type="checkbox"> 鱼腥草/折耳根 · 5斤×2袋</li>
+        <li><input type="checkbox"> 金针菇 · 5斤×1袋</li>
+      </ul>
+      <div class="check-group-title">🔄 开业后常规补货（每2天）</div>
+      <ul class="checklist">
+        <li><input type="checkbox"> 叶菜类按用量补（皇帝菜/红苋菜/紫白菜/皇帝菜）</li>
+        <li><input type="checkbox"> 菌类按用量补（香菇/金针菇/海鲜菇/秀珍菇）</li>
+        <li><input type="checkbox"> 根茎类按用量补（芋头/土豆/莴笋）</li>
+        <li><input type="checkbox"> 葱姜蒜定期补货（葱/香菜/蒜米）</li>
+        <li><input type="checkbox"> 特菜轮换（紫贝菜/折耳根/豌豆苗等）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 售后服务 -->
+<section id="aftersale">
+  <div class="container">
+    <div class="section-title fade-in">⚡ 售后服务分析</div>
+    <div class="section-sub fade-in">快驴进货服务质量数据 · 54天实证</div>
+    <div class="after-grid fade-in">
+      <div class="after-card">
+        <div class="after-card-val" style="color:var(--gold);">4,314</div>
+        <div class="after-card-label">总订单笔数</div>
+      </div>
+      <div class="after-card">
+        <div class="after-card-val" style="color:var(--red);">29</div>
+        <div class="after-card-label">售后件数</div>
+      </div>
+      <div class="after-card">
+        <div class="after-card-val" style="color:var(--green);">0.67%</div>
+        <div class="after-card-label">售后率（行业3-5%）</div>
+      </div>
+      <div class="after-card">
+        <div class="after-card-val" style="color:var(--green);">¥371.78</div>
+        <div class="after-card-label">退款总额（极低）</div>
+      </div>
+    </div>
+    <div class="service-list fade-in">
+      <div class="service-item">
+        <div class="service-icon">👨‍💼</div>
+        <div class="service-title">专属KA服务团队</div>
+        <div class="service-desc">KA大客户经理 + 采购专家 + 物流团队 + 客服团队 + 品控团队，全链路覆盖</div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">📞</div>
+        <div class="service-title">24小时客服热线</div>
+        <div class="service-desc">400-0616-700，配套门店专属售后微信群，当日反馈，当日解决</div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🧾</div>
+        <div class="service-title">稳定全品类足额开票</div>
+        <div class="service-desc">增值税抵扣 · 冲减企业/个人所得税 · 降低整体税负 · 不占餐饮开票额度</div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🔍</div>
+        <div class="service-title">全链路溯源系统</div>
+        <div class="service-desc">每个品项均有包装袋二维码标签（商品身份证），大数据驱动追溯，从源头解决食品安全问题</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 合作建议 -->
+<section id="suggest" style="background:rgba(45,27,105,0.1);">
+  <div class="container">
+    <div class="section-title fade-in">💡 合作建议与策略</div>
+    <div class="section-sub fade-in">快驴进货 × 黔有财 · 深度合作价值主张</div>
+    <div class="suggest-hero fade-in">
+      <div class="sh-card"><div class="sh-num">30家</div><div class="sh-label">品牌营业门店</div></div>
+      <div class="sh-card"><div class="sh-num">2家</div><div class="sh-label">深圳已接入快驴</div></div>
+      <div class="sh-card"><div class="sh-num">¥15.2万</div><div class="sh-label">54天累计供货额</div></div>
+      <div class="sh-card"><div class="sh-num">¥1.4万</div><div class="sh-label">预估新店月采购额</div></div>
+    </div>
+    <div style="background:linear-gradient(135deg,rgba(45,27,105,0.5),rgba(13,8,32,0.8));border:1px solid var(--card-border);border-radius:16px;padding:1.5rem;margin-bottom:2rem;text-align:center;" class="fade-in">
+      <div style="font-size:0.9rem;color:var(--muted);margin-bottom:0.5rem;">54天累计供货 · 售后率行业最低水平</div>
+      <div style="font-size:1.3rem;font-weight:700;color:var(--gold);">黔有财，我们不只是供应商，更是您的增长伙伴</div>
+      <div style="font-size:0.83rem;color:var(--sec);margin-top:0.8rem;">深圳2店成功示范 → 支持全国30家门店复制扩张 → 每开1新店，快驴即刻就位</div>
+    </div>
+    <div class="suggest-cards fade-in">
+      <div class="suggest-card" data-num="01">
+        <div class="suggest-icon">💰</div>
+        <div class="suggest-title">帮您省钱</div>
+        <ul class="suggest-list">
+          <li>自加工蔬菜直送，去皮去根开袋即用，减少后厨人工成本30%+</li>
+          <li>稳定价格体系，月度锁价可协商，预算更可控</li>
+          <li>足额开具增值税发票，抵扣税负，实际节省可观</li>
+          <li>54天总退款仅¥371，采购损耗极低</li>
+        </ul>
+      </div>
+      <div class="suggest-card" data-num="02">
+        <div class="suggest-icon">🚚</div>
+        <div class="suggest-title">帮您省心</div>
+        <ul class="suggest-list">
+          <li>每日06:00-07:00准时送达，不影响早市备货</li>
+          <li>35+ SKU一次性采购，多品种一站式解决</li>
+          <li>APP下单简单，支持导出电子账单，财务对账无压力</li>
+          <li>快驴覆盖全国，门店开到哪，供应链就跟到哪</li>
+        </ul>
+      </div>
+      <div class="suggest-card" data-num="03">
+        <div class="suggest-icon">🛡️</div>
+        <div class="suggest-title">帮您放心</div>
+        <ul class="suggest-list">
+          <li>售后率0.67%，远低于行业3-5%，品质有口皆碑</li>
+          <li>全链路溯源，每件商品二维码可查产地批次</li>
+          <li>400-0616-700客服热线24小时响应，当日解决</li>
+          <li>门店专属售后微信群，问题图片+凭证立即处理</li>
+        </ul>
+      </div>
+      <div class="suggest-card" data-num="04">
+        <div class="suggest-icon">🚀</div>
+        <div class="suggest-title">一起成长</div>
+        <ul class="suggest-list">
+          <li>现2店合作，覆盖深圳福田+南山双核心战场</li>
+          <li>支持剩余28家门店接入，统一供应链管理</li>
+          <li>贵州特色食材（折耳根/酸汤料）可定制化采购</li>
+          <li>快驴KA专属BD团队，提供专属拓展支持方案</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">⚡ 数据分析 by Nova · 锦鲤仙侍 | 华南连锁组</div>
+    <div class="footer-meta">
+      2026-04-26 | v1.0 黔有财解决方案 | 数据周期：2026-03-01 ~ 2026-04-23<br>
+      快驴进货 · 美团旗下一站式食材采购平台 | 华南KA销售团队出品
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 星空 =====
+(function(){
+  const s = document.getElementById('stars');
+  for(let i=0;i<80;i++){
+    const el = document.createElement('div');
+    el.className='star';
+    el.style.cssText=`width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s;`;
+    s.appendChild(el);
+  }
+})();
+
+// ===== 进度条 =====
+window.addEventListener('scroll',function(){
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  document.getElementById('progress-bar').style.width = (scrollTop/docHeight*100)+'%';
+});
+
+// ===== Intersection Observer for fade-in =====
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+
+// ===== CountUp =====
+function countUp(el, target, prefix, suffix, duration){
+  prefix = prefix||''; suffix = suffix||'';
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  function update(now){
+    const t = Math.min((now-start)/duration, 1);
+    const ease = 1-Math.pow(1-t,3);
+    const val = target * ease;
+    el.textContent = prefix + (isFloat ? val.toFixed(2) : Math.floor(val).toLocaleString()) + suffix;
+    if(t<1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const cuIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el = e.target;
+      const target = parseFloat(el.dataset.countup);
+      const prefix = el.dataset.prefix||'';
+      const suffix = el.dataset.suffix||'';
+      countUp(el, target, prefix, suffix, 1500);
+      cuIO.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-countup]').forEach(el=>cuIO.observe(el));
+
+// ===== Bar fill animation =====
+const barIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.width = e.target.dataset.width+'%';
+      barIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.bar-fill').forEach(el=>barIO.observe(el));
+
+// ===== 月度趋势折线图 =====
+(function(){
+  const canvas = document.getElementById('trendCanvas');
+  const W = canvas.offsetWidth || 800;
+  canvas.width = W;
+  const H = 260;
+  const ctx = canvas.getContext('2d');
+  const pad = {l:60,r:30,t:20,b:40};
+  const months = ['2026-03','2026-04(截至23日)'];
+  const xl = [60817, 40329]; // 西丽
+  const cg = [31000, 19883]; // 车公庙
+  const total = xl.map((v,i)=>v+cg[i]);
+  const allVals = [...xl,...cg,...total];
+  const maxV = Math.max(...allVals) * 1.1;
+  const xStep = (W-pad.l-pad.r)/(months.length-1);
+  function getY(v){return pad.t + (H-pad.t-pad.b)*(1-v/maxV);}
+  function drawLine(data, color, lineWidth){
+    ctx.beginPath();
+    ctx.strokeStyle=color;ctx.lineWidth=lineWidth||2;ctx.lineJoin='round';
+    data.forEach((v,i)=>{
+      const x = pad.l + i*xStep, y = getY(v);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    data.forEach((v,i)=>{
+      const x = pad.l + i*xStep, y = getY(v);
+      ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();
+      ctx.fillStyle='#fff';ctx.font='bold 12px Microsoft YaHei,sans-serif';ctx.textAlign='center';
+      ctx.fillText('¥'+Math.round(v/1000)+'k', x, y-12);
+    });
+  }
+  // Grid
+  ctx.strokeStyle='rgba(255,255,255,0.08)';ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y = pad.t + (H-pad.t-pad.b)*i/4;
+    ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();
+    ctx.fillStyle='rgba(255,255,255,0.35)';ctx.font='11px sans-serif';ctx.textAlign='right';
+    ctx.fillText('¥'+(Math.round(maxV*(1-i/4)/1000))+'k',pad.l-6,y+4);
+  }
+  // X labels
+  months.forEach((m,i)=>{
+    ctx.fillStyle='rgba(255,255,255,0.5)';ctx.font='11px sans-serif';ctx.textAlign='center';
+    ctx.fillText(m, pad.l+i*xStep, H-pad.b+20);
+  });
+  drawLine(total,'#27AE60',3);
+  drawLine(xl,'#C9A84C',2);
+  drawLine(cg,'#6B2FA0',2);
+})();
+
+// ===== 饼图 =====
+(function(){
+  const canvas = document.getElementById('pieCanvas');
+  const ctx = canvas.getContext('2d');
+  const cx=150,cy=150,r=120;
+  const data=[
+    {name:'新鲜蔬菜',val:84.9,color:'#C9A84C'},
+    {name:'加工蔬菜',val:9.6,color:'#6B2FA0'},
+    {name:'新鲜水果',val:2.1,color:'#27AE60'},
+    {name:'豆制品',val:1.6,color:'#3498DB'},
+    {name:'冰鲜水产',val:0.8,color:'#E8736C'},
+    {name:'其他',val:0.9,color:'#95A5A6'},
+  ];
+  let start=(-Math.PI/2);
+  data.forEach(d=>{
+    const angle = d.val/100*2*Math.PI;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,start+angle);
+    ctx.fillStyle=d.color;ctx.fill();
+    ctx.strokeStyle='rgba(13,8,32,0.8)';ctx.lineWidth=2;ctx.stroke();
+    // label
+    const mid = start + angle/2;
+    const lx = cx + Math.cos(mid)*(r*0.65), ly = cy + Math.sin(mid)*(r*0.65);
+    if(d.val>3){
+      ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';
+      ctx.fillText(d.val+'%',lx,ly+4);
+    }
+    start += angle;
+  });
+  // Legend
+  const legend = document.getElementById('catLegend');
+  data.forEach(d=>{
+    legend.innerHTML+=`<div class="cat-legend-item"><span class="cat-dot" style="background:${d.color}"></span><span class="cat-name">${d.name}</span><span class="cat-pct">${d.val}%</span></div>`;
+  });
+})();
+
+// ===== 三级类目条形图 =====
+(function(){
+  const container = document.getElementById('hbarChart');
+  const data=[
+    {name:'叶菜类',val:31.1},{name:'菌类',val:16.9},{name:'茄果类',val:12.3},
+    {name:'特菜',val:12.2},{name:'加工蔬菜',val:9.6},{name:'根茎类',val:6.5},
+    {name:'葱姜蒜',val:5.8},{name:'圣女果',val:2.0},{name:'水产品',val:0.8},{name:'豆腐类',val:0.6}
+  ];
+  const colors=['#C9A84C','#6B2FA0','#27AE60','#3498DB','#E8736C','#F39C12','#1ABC9C','#E74C3C','#9B59B6','#95A5A6'];
+  data.forEach((d,i)=>{
+    container.innerHTML+=`<div class="h-bar-row"><span class="h-bar-label">${d.name}</span><div class="h-bar-outer"><div class="h-bar-inner" data-hwidth="${d.val}" style="width:0%"><span class="h-bar-val">${d.val}%</span></div></div></div>`;
+  });
+  // trigger animation
+  const hIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.h-bar-inner').forEach(b=>{
+          b.style.width=b.dataset.hwidth+'%';
+        });
+        hIO.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  hIO.observe(container);
+})();
+
+// ===== TOP20 SKU表格 =====
+(function(){
+  const skus=[
+    ['大芋头去皮（自加工）',10826,233],['香菇 优质（自加工）',6711,145],
+    ['西红柿 优质（自加工）',6662,303],['皇帝菜（自加工）',6184,211],
+    ['紫白菜（自加工）',5710,75],['香菜 优质（自加工）',5295,164],
+    ['台玉米 去皮（自加工）',5033,238],['红苋菜（自加工）',4855,283],
+    ['黄心土豆（自加工）',4665,152],['蒜米整包 约7斤（自加工）',4464,187],
+    ['鱼腥草/折耳根（自加工）',3855,307],['莴笋（去叶去皮）真空',3809,131],
+    ['葱/毛葱（自加工）',3623,166],['金针菇（自加工）',3560,100],
+    ['豌豆苗（自加工）',3479,1708],['豌豆尖精选',3409,40],
+    ['秀珍菇 普通（自加工）',3316,112],['海鲜菇（自加工）',3206,101],
+    ['紫贝菜（自加工）',2993,263],['优质实心芹菜（自加工）',2931,169]
+  ];
+  const maxVal = skus[0][1];
+  const tbody = document.getElementById('skuTableBody');
+  skus.forEach((s,i)=>{
+    const pct = (s[1]/152028*100).toFixed(1);
+    const barW = Math.round(s[1]/maxVal*80);
+    tbody.innerHTML+=`<tr>
+      <td><span class="rank-num ${i<3?'rank-top3':''}">${i+1}</span></td>
+      <td>${s[0]}</td>
+      <td style="color:var(--gold);font-weight:700;">¥${s[1].toLocaleString()}</td>
+      <td>${s[2].toLocaleString()}</td>
+      <td><div class="mini-bar-wrap"><div class="mini-bar" style="width:${barW}px"></div></div> <span style="font-size:0.72rem;color:var(--muted);">${pct}%</span></td>
+    </tr>`;
+  });
+})();
+</script>
+</body>
+</html>
