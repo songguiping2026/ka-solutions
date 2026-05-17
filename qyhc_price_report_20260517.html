@@ -3,1045 +3,706 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>黔有财 · 菜品价格波动复盘报告 | 2026.05.11–05.16</title>
+<title>黔有财·快驴食材采购价格分析报告｜2026年5月</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>
-  @import url('data:text/css,');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
-    background: #F0F7FD;
-    color: #1A2E5A;
-    font-weight: 700;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  background: #F0F7FD;
+  color: #1a1a2e;
+  font-weight: 700;
+}
 
-  /* ======= HERO HEADER ======= */
-  .hero {
-    background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #42A5F5 80%, #90CAF9 100%);
-    padding: 48px 40px 40px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 300px; height: 300px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -40px;
-    width: 200px; height: 200px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 50%;
-  }
-  .hero-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 24px;
-  }
-  .hero-brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .hero-logo {
-    width: 56px; height: 56px;
-    background: #F5C518;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px;
-    box-shadow: 0 4px 16px rgba(245,197,24,0.4);
-  }
-  .hero-brand-text h1 {
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: white;
-  }
-  .hero-brand-text p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.8);
-    margin-top: 4px;
-    font-weight: 400;
-  }
-  .hero-badge {
-    background: #F5C518;
-    color: #1A2E5A;
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 900;
-    box-shadow: 0 4px 12px rgba(245,197,24,0.4);
-  }
-  .hero-title {
-    font-size: 22px;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-  }
-  .hero-subtitle {
-    font-size: 14px;
-    color: rgba(255,255,255,0.85);
-    font-weight: 400;
-    margin-bottom: 32px;
-  }
-  .hero-kpi {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-  .kpi-card {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 14px;
-    padding: 18px 16px;
-    backdrop-filter: blur(8px);
-    text-align: center;
-  }
-  .kpi-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.75);
-    font-weight: 400;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-  }
-  .kpi-value {
-    font-size: 26px;
-    font-weight: 900;
-    color: #F5C518;
-    line-height: 1;
-  }
-  .kpi-unit {
-    font-size: 12px;
-    color: rgba(255,255,255,0.7);
-    font-weight: 400;
-    margin-top: 4px;
-  }
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #42A5F5 75%, #90CAF9 100%);
+  color: white;
+  padding: 48px 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -80px; left: 30%;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.hero-badge {
+  display: inline-block;
+  background: #F5C518;
+  color: #1A2E5A;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.hero-sub {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.kpi-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.kpi-card {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 14px 22px;
+  min-width: 130px;
+  backdrop-filter: blur(4px);
+}
+.kpi-card .kv {
+  font-size: 26px;
+  font-weight: 900;
+  color: #F5C518;
+}
+.kpi-card .kv.up { color: #FF6B6B; }
+.kpi-card .kv.down { color: #69FF97; }
+.kpi-card .kn {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 2px;
+  font-weight: 400;
+}
 
-  /* ======= MAIN BODY ======= */
-  .main { padding: 32px 40px; max-width: 1000px; margin: 0 auto; }
+/* ===== CONTAINER ===== */
+.container { max-width: 1000px; margin: 0 auto; padding: 28px 20px 60px; }
 
-  /* ======= SECTION ======= */
-  .section {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(21,101,192,0.08);
-    margin-bottom: 24px;
-    overflow: hidden;
-  }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 18px 24px;
-    border-bottom: 1px solid #E8F1FA;
-  }
-  .section-bar {
-    width: 4px; height: 24px;
-    background: #1565C0;
-    border-radius: 2px;
-  }
-  .section-title {
-    font-size: 17px;
-    font-weight: 900;
-    color: #1A2E5A;
-    flex: 1;
-  }
-  .section-badge {
-    background: #E8F1FA;
-    color: #1565C0;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .section-body { padding: 20px 24px; }
+/* ===== SECTION TITLE ===== */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 36px 0 16px;
+}
+.section-title::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 24px;
+  background: #1565C0;
+  border-radius: 3px;
+}
+.section-title h2 {
+  font-size: 18px;
+  color: #1565C0;
+}
+.section-title .badge {
+  background: #E3F2FD;
+  color: #1565C0;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
 
-  /* ======= TREND CHART AREA ======= */
-  .trend-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .trend-card {
-    background: #F8FBFF;
-    border-radius: 12px;
-    padding: 16px 20px;
-    border: 1px solid #E0ECFA;
-  }
-  .trend-title {
-    font-size: 13px;
-    color: #5C7A9F;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-  }
+/* ===== CARD ===== */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(21,101,192,0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+}
 
-  /* ======= TABLE ======= */
-  table { width: 100%; border-collapse: collapse; }
-  thead th {
-    background: #1A2E5A;
-    color: #F5C518;
-    padding: 10px 14px;
-    font-size: 13px;
-    text-align: center;
-    letter-spacing: 0.5px;
-  }
-  thead th:first-child { text-align: left; border-radius: 0; }
-  tbody tr:nth-child(even) { background: #F5F9FF; }
-  tbody tr:hover { background: #EDF5FF; }
-  tbody td {
-    padding: 9px 14px;
-    font-size: 13px;
-    border-bottom: 1px solid #EEF3FA;
-    text-align: center;
-    font-weight: 700;
-  }
-  tbody td:first-child { text-align: left; color: #1A2E5A; }
-  .price-red { color: #C8000A; font-weight: 900; }
-  .price-blue { color: #1565C0; font-weight: 900; }
-  .price-green { color: #2E7D32; font-weight: 900; }
-  .price-gray { color: #8895A7; font-weight: 700; }
+/* ===== CHART ===== */
+.chart-wrap { width: 100%; height: 320px; }
+.chart-wrap-lg { width: 100%; height: 420px; }
+.chart-wrap-sm { width: 100%; height: 260px; }
 
-  /* ======= CHANGE BADGE ======= */
-  .badge-up {
-    display: inline-block;
-    background: #FFF0F0;
-    color: #C8000A;
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 12px;
-    font-weight: 900;
-    min-width: 60px;
-  }
-  .badge-down {
-    display: inline-block;
-    background: #F0F9F1;
-    color: #2E7D32;
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 12px;
-    font-weight: 900;
-    min-width: 60px;
-  }
-  .badge-stable {
-    display: inline-block;
-    background: #F5F5F5;
-    color: #666;
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 12px;
-    font-weight: 700;
-    min-width: 60px;
-  }
+/* ===== TABLES ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th {
+  background: #1565C0;
+  color: white;
+  padding: 10px 12px;
+  text-align: center;
+}
+.data-table th:first-child { text-align: left; border-radius: 8px 0 0 0; }
+.data-table th:last-child { border-radius: 0 8px 0 0; }
+.data-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #E3F2FD;
+  text-align: center;
+}
+.data-table td:first-child { text-align: left; }
+.data-table tr:nth-child(even) td { background: #F8FBFF; }
+.data-table tr:hover td { background: #E3F2FD; }
+.tag-up { background: #FFF0F0; color: #C8000A; padding: 2px 8px; border-radius: 8px; }
+.tag-down { background: #F0FFF4; color: #2E7D32; padding: 2px 8px; border-radius: 8px; }
+.tag-stable { background: #F0F7FF; color: #1565C0; padding: 2px 8px; border-radius: 8px; }
 
-  /* ======= MINI BAR ======= */
-  .mini-bar-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-  }
-  .mini-bar-bg {
-    flex: 1; max-width: 100px; height: 8px;
-    background: #EEF3FA;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .mini-bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.6s ease;
-  }
-  .bar-red { background: linear-gradient(90deg, #FF6B6B, #C8000A); }
-  .bar-green { background: linear-gradient(90deg, #66BB6A, #2E7D32); }
-  .bar-gray { background: #D0D8E0; }
+/* ===== CHIPS ===== */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.chip {
+  background: #E3F2FD;
+  color: #1565C0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
 
-  /* ======= SPARKLINE DOTS ======= */
-  .sparkline {
-    display: flex;
-    align-items: flex-end;
-    gap: 3px;
-    height: 28px;
-    justify-content: center;
-  }
-  .spark-dot {
-    width: 8px;
-    border-radius: 2px 2px 0 0;
-    transition: height 0.4s ease;
-  }
+/* ===== ALERT ===== */
+.alert {
+  background: #FFF8E1;
+  border-left: 4px solid #F5C518;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.alert-title { font-size: 14px; color: #E65100; margin-bottom: 6px; }
 
-  /* ======= DAILY TREND BARS ======= */
-  .daily-bar-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-  .daily-date {
-    font-size: 12px;
-    color: #5C7A9F;
-    width: 40px;
-    text-align: right;
-  }
-  .daily-bar-wrap {
-    flex: 1;
-    background: #EEF3FA;
-    border-radius: 4px;
-    height: 22px;
-    overflow: hidden;
-  }
-  .daily-bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    padding-left: 8px;
-    font-size: 11px;
-    color: white;
-    font-weight: 900;
-  }
-  .daily-val {
-    font-size: 12px;
-    color: #1A2E5A;
-    width: 50px;
-    text-align: right;
-  }
+/* ===== SUGGEST CARDS ===== */
+.suggest-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+.suggest-card {
+  background: white;
+  border: 1.5px solid #BBDefB;
+  border-radius: 14px;
+  padding: 18px;
+}
+.suggest-card .icon { font-size: 24px; margin-bottom: 8px; }
+.suggest-card h4 { color: #1565C0; font-size: 14px; margin-bottom: 6px; }
+.suggest-card p { font-size: 13px; color: #444; font-weight: 400; line-height: 1.6; }
 
-  /* ======= SUMMARY BOX ======= */
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-  .summary-box {
-    border-radius: 12px;
-    padding: 16px 18px;
-    text-align: center;
-  }
-  .summary-box.red { background: #FFF0F0; border: 1.5px solid #FFD0D0; }
-  .summary-box.green { background: #F0F9F1; border: 1.5px solid #C8E6C9; }
-  .summary-box.blue { background: #E8F1FA; border: 1.5px solid #BBDEFB; }
-  .summary-box .num { font-size: 32px; font-weight: 900; line-height: 1; }
-  .summary-box.red .num { color: #C8000A; }
-  .summary-box.green .num { color: #2E7D32; }
-  .summary-box.blue .num { color: #1565C0; }
-  .summary-box .label { font-size: 12px; margin-top: 6px; font-weight: 700; }
-  .summary-box.red .label { color: #C8000A; }
-  .summary-box.green .label { color: #2E7D32; }
-  .summary-box.blue .label { color: #5C7A9F; }
+/* ===== FOOTER ===== */
+.footer {
+  background: linear-gradient(135deg, #1565C0, #42A5F5);
+  color: white;
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.footer span { opacity: 0.8; }
 
-  /* ======= ADVICE BOX ======= */
-  .advice-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-  .advice-card {
-    background: #F8FBFF;
-    border-radius: 12px;
-    padding: 16px 18px;
-    border-left: 4px solid #1565C0;
-  }
-  .advice-card.warn { border-left-color: #E65100; background: #FFF8F5; }
-  .advice-card.ok { border-left-color: #2E7D32; background: #F5FBF5; }
-  .advice-icon { font-size: 20px; margin-bottom: 8px; }
-  .advice-title { font-size: 14px; font-weight: 900; color: #1A2E5A; margin-bottom: 6px; }
-  .advice-text { font-size: 12px; color: #5C7A9F; line-height: 1.7; font-weight: 400; }
-  .advice-text b { color: #1A2E5A; font-weight: 900; }
+/* ===== MINI TREND BAR ===== */
+.trend-bar { display: flex; align-items: center; gap: 4px; }
+.trend-dot { width: 8px; height: 8px; border-radius: 50%; background: #1565C0; }
 
-  /* ======= STABLE CHIPS ======= */
-  .chip-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    background: #E8F1FA;
-    color: #1A2E5A;
-    border-radius: 20px;
-    padding: 5px 14px;
-    font-size: 12px;
-    font-weight: 700;
-    border: 1px solid #BBDEFB;
-    display: flex; align-items: center; gap: 5px;
-  }
-  .chip-price { color: #5C7A9F; font-weight: 400; }
-  .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: #2E7D32; }
-
-  /* ======= ANOMALY BOX ======= */
-  .anomaly-box {
-    background: #FFFBF0;
-    border: 1.5px solid #F5C518;
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-bottom: 14px;
-    display: flex; align-items: flex-start; gap: 12px;
-  }
-  .anomaly-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-  .anomaly-content .title { font-size: 13px; font-weight: 900; color: #1A2E5A; margin-bottom: 4px; }
-  .anomaly-content .desc { font-size: 12px; color: #5C7A9F; line-height: 1.7; font-weight: 400; }
-
-  /* ======= FOOTER ======= */
-  footer {
-    background: linear-gradient(135deg, #1565C0, #1A2E5A);
-    padding: 24px 40px;
-    color: white;
-    text-align: center;
-  }
-  footer p { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 400; margin-top: 4px; }
-  footer .footer-brand { font-size: 14px; font-weight: 700; color: #F5C518; margin-bottom: 4px; }
-
-  /* ======= STORE TAG ======= */
-  .store-tag {
-    display: inline-block;
-    background: #1565C0;
-    color: white;
-    border-radius: 4px;
-    padding: 2px 8px;
-    font-size: 11px;
-    font-weight: 700;
-    margin-right: 6px;
-  }
-  .store-tag.ckg { background: #7B1FA2; }
-
-  /* ======= COMPARISON ROW ======= */
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  .store-card {
-    background: #F8FBFF;
-    border-radius: 12px;
-    padding: 16px;
-    border: 1px solid #E0ECFA;
-  }
-  .store-card h4 {
-    font-size: 14px;
-    font-weight: 900;
-    color: #1A2E5A;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #1565C0;
-  }
-  .store-card h4.ckg-h { border-bottom-color: #7B1FA2; }
-  .store-item { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #EEF3FA; font-size: 12px; }
-  .store-item:last-child { border-bottom: none; }
-  .store-item .name { color: #1A2E5A; font-weight: 700; }
-  .store-item .amt { color: #C8000A; font-weight: 900; }
-
-  /* ======= SCROLLTABLE ======= */
-  .scroll-table { overflow-x: auto; }
+/* ===== responsive ===== */
+@media(max-width:600px) {
+  .hero { padding: 32px 16px 24px; }
+  .hero h1 { font-size: 22px; }
+  .kpi-card { min-width: 100px; padding: 10px 14px; }
+  .suggest-grid { grid-template-columns: 1fr; }
+  .container { padding: 16px 12px 40px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ======= HERO HEADER ======= -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-top">
-    <div class="hero-brand">
-      <div class="hero-logo">🔥</div>
-      <div class="hero-brand-text">
-        <h1>黔有财 · 贵州地摊酸汤火锅</h1>
-        <p>美团快驴 · 深圳华南区 KA 客户 · 双店数据复盘</p>
-      </div>
-    </div>
-    <div class="hero-badge">📊 菜品价格波动报告</div>
-  </div>
-  <div class="hero-title">价格波动复盘分析 | 2026年5月11日 — 5月16日</div>
-  <div class="hero-subtitle">数据来源：快驴配送单 | 西丽店（刘凯）· 车公庙店 | 分析品项：34个 | 制作：快驴华南大区 Nova</div>
-  <div class="hero-kpi">
+  <div class="hero-badge">美团快驴 · 食材供应链</div>
+  <h1>🥬 黔有财·食材采购价格分析</h1>
+  <div class="hero-sub">分析周期：2026年5月11日—5月16日 &nbsp;|&nbsp; 涉及门店：西丽店 · 车公庙店 &nbsp;|&nbsp; 报告生成：2026年5月17日</div>
+  <div class="kpi-row">
     <div class="kpi-card">
-      <div class="kpi-label">整体均价走势</div>
-      <div class="kpi-value">-9.5%</div>
-      <div class="kpi-unit">¥4.53 → ¥4.10（本周以降为主）</div>
+      <div class="kv down">-9.7%</div>
+      <div class="kn">整体均价趋势</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">明显涨价品项</div>
-      <div class="kpi-value" style="color:#FFB74D;">4 个</div>
-      <div class="kpi-unit">涨幅 +6% ～ +33%</div>
+      <div class="kv up">4品</div>
+      <div class="kn">价格上涨品项</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">明显降价品项</div>
-      <div class="kpi-value" style="color:#81C784;">6 个</div>
-      <div class="kpi-unit">降幅 -4% ～ -28%</div>
+      <div class="kv" style="color:#69C4FF">6品</div>
+      <div class="kn">价格下降品项</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">价格零波动品项</div>
-      <div class="kpi-value" style="color:#90CAF9;">12 个</div>
-      <div class="kpi-unit">稳定供应，可锁价</div>
+      <div class="kv" style="color:#F5C518">12品</div>
+      <div class="kn">价格稳定品项</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kv down">¥13,847</div>
+      <div class="kn">区间合计采购额</div>
     </div>
   </div>
 </div>
 
-<!-- ======= MAIN ======= -->
-<div class="main">
+<div class="container">
 
-  <!-- 整体概况 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar"></div>
-      <div class="section-title">📊 整体采购概况</div>
-      <div class="section-badge">6天数据</div>
-    </div>
-    <div class="section-body">
-      <div class="summary-grid">
-        <div class="summary-box red">
-          <div class="num">4</div>
-          <div class="label">🔺 涨价品项（需注意）</div>
-        </div>
-        <div class="summary-box green">
-          <div class="num">6</div>
-          <div class="label">🔻 降价品项（可优化）</div>
-        </div>
-        <div class="summary-box blue">
-          <div class="num">12</div>
-          <div class="label">⚪ 价格稳定品项</div>
-        </div>
-      </div>
-
-      <!-- 每日均价趋势 -->
-      <div style="margin-bottom:6px;font-size:13px;color:#5C7A9F;font-weight:700;">📈 每日整体均价趋势（元/斤）</div>
-      <div>
-        <!-- 05-11 -->
-        <div class="daily-bar-row">
-          <div class="daily-date">05-11</div>
-          <div class="daily-bar-wrap">
-            <div class="daily-bar-fill" style="width:90%;background:linear-gradient(90deg,#1565C0,#42A5F5);">¥4.53</div>
-          </div>
-          <div class="daily-val">¥4.53</div>
-        </div>
-        <!-- 05-12 -->
-        <div class="daily-bar-row">
-          <div class="daily-date">05-12</div>
-          <div class="daily-bar-wrap">
-            <div class="daily-bar-fill" style="width:89%;background:linear-gradient(90deg,#1565C0,#42A5F5);">¥4.48</div>
-          </div>
-          <div class="daily-val">¥4.48</div>
-        </div>
-        <!-- 05-13 高峰 -->
-        <div class="daily-bar-row">
-          <div class="daily-date">05-13</div>
-          <div class="daily-bar-wrap">
-            <div class="daily-bar-fill" style="width:100%;background:linear-gradient(90deg,#E65100,#FF8F00);">¥5.38 ⚠</div>
-          </div>
-          <div class="daily-val price-red">¥5.38</div>
-        </div>
-        <!-- 05-14 -->
-        <div class="daily-bar-row">
-          <div class="daily-date">05-14</div>
-          <div class="daily-bar-wrap">
-            <div class="daily-bar-fill" style="width:82%;background:linear-gradient(90deg,#1565C0,#42A5F5);">¥4.29</div>
-          </div>
-          <div class="daily-val">¥4.29</div>
-        </div>
-        <!-- 05-15 -->
-        <div class="daily-bar-row">
-          <div class="daily-date">05-15</div>
-          <div class="daily-bar-wrap">
-            <div class="daily-bar-fill" style="width:90%;background:linear-gradient(90deg,#1565C0,#42A5F5);">¥4.74</div>
-          </div>
-          <div class="daily-val">¥4.74</div>
-        </div>
-        <!-- 05-16 最低 -->
-        <div class="daily-bar-row">
-          <div class="daily-date">05-16</div>
-          <div class="daily-bar-wrap">
-            <div class="daily-bar-fill" style="width:77%;background:linear-gradient(90deg,#2E7D32,#66BB6A);">¥4.10</div>
-          </div>
-          <div class="daily-val price-green">¥4.10</div>
-        </div>
-      </div>
-      <div style="margin-top:12px;font-size:12px;color:#8895A7;font-weight:400;">
-        注：5月13日均价偏高（¥5.38），主因为当日配送品项包含法香（¥9.61/斤）等高价香料拉高均值，非全线涨价。
-      </div>
-    </div>
+  <!-- 每日采购金额 -->
+  <div class="section-title"><h2>📊 每日采购金额趋势</h2><span class="badge">两店合计</span></div>
+  <div class="card">
+    <div id="chart-daily-gmv" class="chart-wrap"></div>
   </div>
 
-  <!-- 双店采购汇总 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar"></div>
-      <div class="section-title">🏪 双店采购金额汇总</div>
-      <div class="section-badge">5月11日—16日</div>
-    </div>
-    <div class="section-body">
-      <div class="compare-grid">
-        <div class="store-card">
-          <h4>📍 西丽店（刘凯）</h4>
-          <div class="store-item"><span class="name">2026-05-11</span><span class="amt">¥1,893.00</span></div>
-          <div class="store-item"><span class="name">2026-05-12</span><span class="amt">¥1,024.10</span></div>
-          <div class="store-item"><span class="name">2026-05-13</span><span class="amt">¥965.61</span></div>
-          <div class="store-item"><span class="name">2026-05-14</span><span class="amt">¥1,327.40</span></div>
-          <div class="store-item"><span class="name">2026-05-15</span><span class="amt">¥1,387.82</span></div>
-          <div class="store-item"><span class="name">2026-05-16</span><span class="amt">¥1,970.27 + ¥41.08</span></div>
-          <div class="store-item" style="background:#F5F9FF;font-weight:900;">
-            <span class="name" style="color:#1565C0;">合计</span>
-            <span class="amt">¥8,609.28</span>
-          </div>
-        </div>
-        <div class="store-card">
-          <h4 class="ckg-h">📍 车公庙店</h4>
-          <div class="store-item"><span class="name">2026-05-11</span><span class="amt">¥985.56</span></div>
-          <div class="store-item"><span class="name">2026-05-12</span><span class="amt">¥874.98</span></div>
-          <div class="store-item"><span class="name">2026-05-13</span><span class="amt">¥504.14</span></div>
-          <div class="store-item"><span class="name">2026-05-14</span><span class="amt">¥925.07</span></div>
-          <div class="store-item"><span class="name">2026-05-15</span><span class="amt">¥885.10</span></div>
-          <div class="store-item"><span class="name">2026-05-16</span><span class="amt">¥1,063.12</span></div>
-          <div class="store-item" style="background:#F5F5FF;font-weight:900;">
-            <span class="name" style="color:#7B1FA2;">合计</span>
-            <span class="amt">¥5,237.97</span>
-          </div>
-        </div>
-      </div>
-      <div style="background:#E8F1FA;border-radius:10px;padding:14px 18px;text-align:center;">
-        <span style="font-size:14px;font-weight:900;color:#1A2E5A;">两店合计本周采购金额：</span>
-        <span style="font-size:22px;font-weight:900;color:#C8000A;">¥13,847.25</span>
-      </div>
-    </div>
+  <!-- 门店采购汇总 -->
+  <div class="section-title"><h2>🏪 两店采购金额汇总</h2><span class="badge">含6天数据</span></div>
+  <div class="card">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>门店</th>
+          <th>5月11日</th>
+          <th>5月12日</th>
+          <th>5月13日</th>
+          <th>5月14日</th>
+          <th>5月15日</th>
+          <th>5月16日</th>
+          <th>合计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>西丽店</b></td>
+          <td>¥1,893.00</td>
+          <td>¥1,024.10</td>
+          <td>¥965.61</td>
+          <td>¥1,327.40</td>
+          <td>¥1,387.82</td>
+          <td>¥2,011.35</td>
+          <td><b style="color:#C8000A">¥8,609.28</b></td>
+        </tr>
+        <tr>
+          <td><b>车公庙店</b></td>
+          <td>¥985.56</td>
+          <td>¥874.98</td>
+          <td>¥504.14</td>
+          <td>¥925.07</td>
+          <td>¥885.10</td>
+          <td>¥1,063.12</td>
+          <td><b style="color:#C8000A">¥5,237.97</b></td>
+        </tr>
+        <tr style="background:#E3F2FD">
+          <td><b>两店合计</b></td>
+          <td><b>¥2,878.56</b></td>
+          <td><b>¥1,899.08</b></td>
+          <td><b>¥1,469.75</b></td>
+          <td><b>¥2,252.47</b></td>
+          <td><b>¥2,272.92</b></td>
+          <td><b>¥3,074.47</b></td>
+          <td><b style="color:#1565C0;font-size:15px">¥13,847.25</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:#888;margin-top:10px;font-weight:400">注：5月16日含西丽店¥41.08补充单；5月17日车公庙店¥843.05订单不在本次分析区间内。</p>
   </div>
 
-  <!-- 🔺 涨价品项 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar" style="background:#C8000A;"></div>
-      <div class="section-title">🔺 涨价品项明细（需重点关注）</div>
-      <div class="section-badge" style="background:#FFF0F0;color:#C8000A;">共 4 个</div>
-    </div>
-    <div class="section-body">
-      <div class="scroll-table">
-        <table>
-          <thead>            <tr>
-              <th style="text-align:left;min-width:120px;">品名</th>
-              <th>5月11日</th>
-              <th>5月12日</th>
-              <th>5月13日</th>
-              <th>5月14日</th>
-              <th>5月15日</th>
-              <th>5月16日</th>
-              <th>涨幅</th>
-              <th>趋势图</th>
-              <th style="min-width:140px;">采购建议</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>黄心白</b></td>
-              <td class="price-blue">¥1.66</td>
-              <td>¥1.82</td>
-              <td>¥1.82</td>
-              <td>¥1.99</td>
-              <td>¥1.99</td>
-              <td class="price-red">¥2.21</td>
-              <td><span class="badge-up">🔺 +33.1%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:10px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:15px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:15px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:18px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:18px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:24px;background:#C8000A;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">持续上涨，可适当减量，关注后续走势</td>
-            </tr>
-            <tr>
-              <td><b>指天椒</b></td>
-              <td class="price-blue">¥4.71</td>
-              <td>¥5.08</td>
-              <td>¥5.08</td>
-              <td>¥5.32</td>
-              <td class="price-red">¥5.55</td>
-              <td>—</td>
-              <td><span class="badge-up">🔺 +17.8%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:10px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:16px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:16px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:20px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:24px;background:#C8000A;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">持续走高，确保不断货，可与客户沟通用量</td>
-            </tr>
-            <tr>
-              <td><b>西红柿</b></td>
-              <td class="price-blue">¥3.27</td>
-              <td>¥3.62</td>
-              <td>¥3.62</td>
-              <td>¥3.85</td>
-              <td>¥3.95</td>
-              <td class="price-red">¥3.60</td>
-              <td><span class="badge-up">🔺 +10.1%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:10px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:16px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:16px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:20px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:22px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:18px;background:#E65100;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">两店均有上涨，5月16日小幅回调，关注是否企稳</td>
-            </tr>
-            <tr>
-              <td><b>菠菜</b></td>
-              <td class="price-blue">¥4.00</td>
-              <td>¥4.23</td>
-              <td>¥4.00</td>
-              <td>¥4.23</td>
-              <td>¥4.23</td>
-              <td class="price-red">¥4.23</td>
-              <td><span class="badge-up">🔺 +5.8%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:10px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:14px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:10px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:14px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:14px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:14px;background:#E65100;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">小幅波动式上涨，整体可控</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <!-- 每日整体均价趋势 -->
+  <div class="section-title"><h2>📈 每日品项均价趋势</h2><span class="badge">两店合并均值</span></div>
+  <div class="card">
+    <div id="chart-avg-price" class="chart-wrap"></div>
+    <p style="font-size:12px;color:#888;margin-top:12px;font-weight:400">⚠️ 注：5月13日整体均价偏低，因当日西丽店下单以常规蔬菜为主，高单价品项（蟹贝菜、鲜木耳等）未出现，属结构性差异，非市场性降价。</p>
   </div>
 
-  <!-- 🔻 降价品项 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar" style="background:#2E7D32;"></div>
-      <div class="section-title">🔻 降价品项明细（可优化采购策略）</div>
-      <div class="section-badge" style="background:#F0F9F1;color:#2E7D32;">共 6 个</div>
-    </div>
-    <div class="section-body">
-      <div class="scroll-table">
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left;min-width:120px;">品名</th>
-              <th>5月11日</th>
-              <th>5月12日</th>
-              <th>5月13日</th>
-              <th>5月14日</th>
-              <th>5月15日</th>
-              <th>5月16日</th>
-              <th>降幅</th>
-              <th>趋势图</th>
-              <th style="min-width:150px;">采购建议</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>红苋菜（自加工）</b></td>
-              <td class="price-red">¥3.17</td>
-              <td>¥2.66</td>
-              <td>¥2.53</td>
-              <td>¥2.53</td>
-              <td>¥4.18 ⚠</td>
-              <td class="price-green">¥2.28</td>
-              <td><span class="badge-down">🔻 -28.1%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:24px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:18px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:16px;background:#2E7D32;"></div>
-                  <div class="spark-dot" style="height:16px;background:#2E7D32;"></div>
-                  <div class="spark-dot" style="height:28px;background:#FF8F00;"></div>
-                  <div class="spark-dot" style="height:12px;background:#2E7D32;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;"><b style="color:#E65100;">⚠ 5/15异常高价¥4.18，请核实是否为不同规格</b></td>
-            </tr>
-            <tr>
-              <td><b>优质实心芹菜</b></td>
-              <td class="price-red">¥3.73</td>
-              <td>¥3.73</td>
-              <td>¥3.73</td>
-              <td>¥3.73</td>
-              <td>¥3.73</td>
-              <td class="price-green">¥2.96</td>
-              <td><span class="badge-down">🔻 -20.6%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:12px;background:#2E7D32;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">5/16骤降至¥2.96，可加大订量锁低价</td>
-            </tr>
-            <tr>
-              <td><b>皇帝菜</b></td>
-              <td class="price-red">¥3.84</td>
-              <td>¥3.84</td>
-              <td>¥3.84</td>
-              <td>¥3.60</td>
-              <td>¥3.60</td>
-              <td class="price-green">¥3.36</td>
-              <td><span class="badge-down">🔻 -12.5%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:16px;background:#66BB6A;"></div>
-                  <div class="spark-dot" style="height:16px;background:#66BB6A;"></div>
-                  <div class="spark-dot" style="height:12px;background:#2E7D32;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">阶梯式下降，整体利好，持续保量</td>
-            </tr>
-            <tr>
-              <td><b>去皮茼莴</b></td>
-              <td class="price-red">¥4.91</td>
-              <td>¥4.91</td>
-              <td>¥4.91</td>
-              <td class="price-green">¥4.38</td>
-              <td>—</td>
-              <td>—</td>
-              <td><span class="badge-down">🔻 -10.8%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:22px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:22px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:22px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:14px;background:#2E7D32;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">5/14降价，后续数据待跟踪</td>
-            </tr>
-            <tr>
-              <td><b>生菜</b></td>
-              <td class="price-red">¥2.73</td>
-              <td>¥2.73</td>
-              <td>¥2.83</td>
-              <td>¥2.60</td>
-              <td>¥2.83</td>
-              <td class="price-green">¥2.47</td>
-              <td><span class="badge-down">🔻 -9.5%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:18px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:18px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:20px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:16px;background:#66BB6A;"></div>
-                  <div class="spark-dot" style="height:20px;background:#E65100;"></div>
-                  <div class="spark-dot" style="height:12px;background:#2E7D32;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;">小幅波动后降至¥2.47，整体向好</td>
-            </tr>
-            <tr>
-              <td><b>法香（蕃茜）</b></td>
-              <td class="price-red">¥6.69</td>
-              <td>¥9.61</td>
-              <td>¥9.61</td>
-              <td>—</td>
-              <td>—</td>
-              <td class="price-green">¥6.41</td>
-              <td><span class="badge-down">🔻 -4.2%</span></td>
-              <td>
-                <div class="sparkline">
-                  <div class="spark-dot" style="height:12px;background:#1565C0;"></div>
-                  <div class="spark-dot" style="height:28px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:28px;background:#C8000A;"></div>
-                  <div class="spark-dot" style="height:12px;background:#2E7D32;"></div>
-                </div>
-              </td>
-              <td style="font-size:11px;color:#5C7A9F;text-align:left;font-weight:400;"><b style="color:#E65100;">⚠ 5/12-13飙升至¥9.61，供应不稳，注意缺货风险</b></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <!-- 涨价品项 -->
+  <div class="section-title"><h2>📈 价格上涨品项分析</h2><span class="badge">4品</span></div>
+  <div class="card">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>品名</th>
+          <th>5/11</th>
+          <th>5/12</th>
+          <th>5/13</th>
+          <th>5/14</th>
+          <th>5/15</th>
+          <th>5/16</th>
+          <th>涨幅</th>
+          <th>采购建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>黄心白</b></td>
+          <td>¥1.66</td><td>¥1.83</td><td>¥1.83</td><td>¥1.99</td><td>¥1.99</td><td>¥2.21</td>
+          <td><span class="tag-up">+33.1%</span></td>
+          <td style="color:#E65100">建议近期适量囤货</td>
+        </tr>
+        <tr>
+          <td><b>指天椒</b></td>
+          <td>¥4.71</td><td>¥5.08</td><td>¥5.08</td><td>¥5.32</td><td>¥5.55</td><td>—</td>
+          <td><span class="tag-up">+17.8%</span></td>
+          <td style="color:#E65100">持续上涨，关注行情</td>
+        </tr>
+        <tr>
+          <td><b>西红柿</b></td>
+          <td>¥3.28</td><td>¥3.63</td><td>¥3.63</td><td>¥3.85</td><td>¥3.95</td><td>¥3.60</td>
+          <td><span class="tag-up">+9.8%</span></td>
+          <td style="color:#E65100">5/16略回落，持续观望</td>
+        </tr>
+        <tr>
+          <td><b>菠菜</b></td>
+          <td>¥3.76</td><td>¥4.23</td><td>¥4.23</td><td>¥4.23</td><td>¥4.23</td><td>¥4.23</td>
+          <td><span class="tag-up">+12.5%</span></td>
+          <td style="color:#E65100">5/12后稳定，可正常采购</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="chart-rising" class="chart-wrap" style="margin-top:20px;height:280px;"></div>
   </div>
 
-  <!-- ⚪ 价格稳定品项 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar" style="background:#5C7A9F;"></div>
-      <div class="section-title">⚪ 价格稳定品项（可优先锁价）</div>
-      <div class="section-badge">共 12 个</div>
-    </div>
-    <div class="section-body">
-      <div style="margin-bottom:14px;font-size:12px;color:#5C7A9F;font-weight:400;">以下品项本周价格零波动，供应稳定，是与客户谈月锁价协议的优先品类。</div>
-      <div class="chip-wrap">
-        <div class="chip"><div class="dot"></div>台玉米去皮 <span class="chip-price">¥3.43/斤</span></div>
-        <div class="chip"><div class="dot"></div>鲜海带结 <span class="chip-price">¥3.30/斤</span></div>
-        <div class="chip"><div class="dot"></div>鱼腥草/折耳根 <span class="chip-price">¥8.32-8.33/斤</span></div>
-        <div class="chip"><div class="dot"></div>葱/毛葱 <span class="chip-price">¥4.14/斤</span></div>
-        <div class="chip"><div class="dot"></div>香菇 <span class="chip-price">¥9.26/斤</span></div>
-        <div class="chip"><div class="dot"></div>蟹贝菜 <span class="chip-price">¥22.19/斤</span></div>
-        <div class="chip"><div class="dot"></div>云南小瓜/西葫芦 <span class="chip-price">¥1.96/斤</span></div>
-        <div class="chip"><div class="dot"></div>虫草花 <span class="chip-price">¥5.63/斤</span></div>
-        <div class="chip"><div class="dot"></div>海鲜菇 <span class="chip-price">¥5.72/斤</span></div>
-        <div class="chip"><div class="dot"></div>鹿茸菇 <span class="chip-price">¥4.44/斤</span></div>
-        <div class="chip"><div class="dot"></div>蟹味菇 <span class="chip-price">¥5.95/斤</span></div>
-        <div class="chip"><div class="dot"></div>小黄豆芽 <span class="chip-price">¥1.46/斤</span></div>
-      </div>
-    </div>
+  <!-- 降价品项 -->
+  <div class="section-title"><h2>📉 价格下降品项分析</h2><span class="badge">6品</span></div>
+  <div class="card">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>品名</th>
+          <th>5/11</th>
+          <th>5/12</th>
+          <th>5/13</th>
+          <th>5/14</th>
+          <th>5/15</th>
+          <th>5/16</th>
+          <th>降幅</th>
+          <th>采购建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>红苋菜（自加工）</b></td>
+          <td>¥3.17</td><td>¥2.66</td><td>¥2.53</td><td>¥2.53</td><td>¥2.28</td><td>¥2.28</td>
+          <td><span class="tag-down">-28.1%</span></td>
+          <td style="color:#2E7D32">整体下降，可放心采购</td>
+        </tr>
+        <tr>
+          <td><b>优质实心芹菜</b></td>
+          <td>¥3.73</td><td>¥3.73</td><td>¥3.73</td><td>¥3.73</td><td>¥3.73</td><td>¥2.96</td>
+          <td><span class="tag-down">-20.6%</span></td>
+          <td style="color:#2E7D32">5/16明显降价，优先采购</td>
+        </tr>
+        <tr>
+          <td><b>皇帝菜</b></td>
+          <td>¥3.84</td><td>¥3.84</td><td>¥3.84</td><td>¥3.60</td><td>¥3.60</td><td>¥3.36</td>
+          <td><span class="tag-down">-12.5%</span></td>
+          <td style="color:#2E7D32">持续下降，可适量增购</td>
+        </tr>
+        <tr>
+          <td><b>去皮莴笋</b></td>
+          <td>¥4.28</td><td>¥4.28</td><td>¥4.28</td><td>¥4.28</td><td>¥4.28</td><td>¥3.97</td>
+          <td><span class="tag-down">-7.2%</span></td>
+          <td style="color:#2E7D32">5/16降价，正常采购</td>
+        </tr>
+        <tr>
+          <td><b>生菜</b></td>
+          <td>¥2.73</td><td>¥2.73</td><td>¥2.65</td><td>¥2.47</td><td>¥2.65</td><td>¥2.47</td>
+          <td><span class="tag-down">-9.5%</span></td>
+          <td style="color:#2E7D32">整体下行，按需采购</td>
+        </tr>
+        <tr>
+          <td><b>法香（蕃茜）</b></td>
+          <td>¥6.69</td><td>¥9.61</td><td>—</td><td>—</td><td>—</td><td>¥6.41</td>
+          <td><span class="tag-down">-4.2%</span></td>
+          <td style="color:#888">波动大，按日采购为宜</td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="chart-falling" class="chart-wrap" style="margin-top:20px;height:280px;"></div>
   </div>
 
-  <!-- ⚠️ 异常数据提醒 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar" style="background:#F5C518;"></div>
-      <div class="section-title">⚠️ 异常数据提醒</div>
-      <div class="section-badge" style="background:#FFFBF0;color:#E65100;">需核实 2 项</div>
+  <!-- 稳定品项 -->
+  <div class="section-title"><h2>✅ 价格稳定品项</h2><span class="badge">12品 · 全周期零波动或波动&lt;5%</span></div>
+  <div class="card">
+    <div class="chips">
+      <span class="chip">🌽 台玉米去皮 ¥3.43/斤</span>
+      <span class="chip">🌿 鲜海带结 ¥3.30/斤</span>
+      <span class="chip">🌿 鱼腥草/折耳根 ¥8.33/斤</span>
+      <span class="chip">🧅 葱/毛葱 ¥4.14/斤</span>
+      <span class="chip">🍄 香菇 ¥9.26/斤</span>
+      <span class="chip">🥦 蟹贝菜 ¥22.19/斤</span>
+      <span class="chip">🥒 云南小瓜/西葫芦 ¥1.96/斤</span>
+      <span class="chip">🌸 虫草花 ¥5.63/斤</span>
+      <span class="chip">🍄 海鲜菇 ¥5.72/斤</span>
+      <span class="chip">🍄 鹿茸菇 ¥4.44/斤</span>
+      <span class="chip">🍄 蟹味菇 ¥5.95/斤</span>
+      <span class="chip">🫛 小黄豆芽 ¥1.46/斤</span>
     </div>
-    <div class="section-body">
-      <div class="anomaly-box">
-        <div class="anomaly-icon">🔍</div>
-        <div class="anomaly-content">
-          <div class="title">红苋菜（自加工）— 5月15日价格异常偏高</div>
-          <div class="desc">
-            本周红苋菜正常价格区间为 <b>¥2.28～¥3.17/斤</b>，但5月15日（西丽店&车公庙店均出现）单价高达 <b style="color:#C8000A;">¥4.18/斤</b>，涨幅达 +32%，随后5月16日迅速回落至¥2.28。<br>
-            <b>建议核实：</b>是否为特殊规格（如净菜袋装）、临时补货或录单错误，避免影响与客户的结算核对。
-          </div>
-        </div>
-      </div>
-      <div class="anomaly-box">
-        <div class="anomaly-icon">🔍</div>
-        <div class="anomaly-content">
-          <div class="title">法香（蕃茜）— 5月12~13日价格大幅攀升</div>
-          <div class="desc">
-            法香5月11日价格为 <b>¥6.69/斤</b>，5月12～13日飙升至 <b style="color:#C8000A;">¥9.61/斤</b>（涨幅+44%），5月16日回落至¥6.41。<br>
-            <b>建议核实：</b>是否为香料类季节性波动，或受供应链中断影响，可提前与客户沟通法香替代品或对应价格波动说明。
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 💡 采购建议 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar"></div>
-      <div class="section-title">💡 本周采购建议</div>
-      <div class="section-badge">4 条行动建议</div>
-    </div>
-    <div class="section-body">
-      <div class="advice-grid">
-        <div class="advice-card warn">
-          <div class="advice-icon">🔺</div>
-          <div class="advice-title">涨价品项——控量为主</div>
-          <div class="advice-text">
-            黄心白（+33%）、指天椒（+18%）、西红柿（+10%）均呈持续上涨趋势。建议与客户沟通<b>合理用量</b>，控制单日订货量，避免价格高位大量备货造成浪费。
-          </div>
-        </div>
-        <div class="advice-card ok">
-          <div class="advice-icon">🔻</div>
-          <div class="advice-title">降价品项——抓紧锁价</div>
-          <div class="advice-text">
-            优质实心芹菜（¥2.96）、生菜（¥2.47）、皇帝菜（¥3.36）本周均价已降至近期低点。建议与快驴<b>签订短期锁价协议</b>，锁住本周价格，避免再度回涨。
-          </div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-icon">⚪</div>
-          <div class="advice-title">稳定品项——谈月度协议</div>
-          <div class="advice-text">
-            台玉米、鲜海带结、葱/毛葱等<b>12个零波动品项</b>是与客户谈月锁价的最佳切入点，可作为快驴供应稳定性的核心卖点，提升客户粘性。
-          </div>
-        </div>
-        <div class="advice-card warn">
-          <div class="advice-icon">⚠️</div>
-          <div class="advice-title">关注异常——及时核实</div>
-          <div class="advice-text">
-            红苋菜5月15日异常高价（¥4.18）及法香5月12～13日涨价（¥9.61）需<b>核实原因</b>，与客户对账前做好说明，避免结算产生分歧，维护客户信任。
-          </div>
-        </div>
-      </div>
-    </div>
+    <p style="font-size:13px;color:#555;margin-top:14px;font-weight:400">以上品项在分析周期内价格稳定，可按需正常采购，无需特别关注价格变动。</p>
   </div>
 
   <!-- 全品项汇总表 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-bar"></div>
-      <div class="section-title">📋 全品项价格汇总表（两店均值）</div>
-      <div class="section-badge">34 个品项</div>
+  <div class="section-title"><h2>📋 全品项价格明细汇总</h2><span class="badge">两店均价 · 单位：元/斤</span></div>
+  <div class="card">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>品名</th>
+          <th>5月11日</th>
+          <th>5月12日</th>
+          <th>5月13日</th>
+          <th>5月14日</th>
+          <th>5月15日</th>
+          <th>5月16日</th>
+          <th>趋势</th>
+        </tr>
+      </thead>
+      <tbody id="all-items-tbody">
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 异常数据提醒 -->
+  <div class="section-title"><h2>⚠️ 数据异常提醒</h2></div>
+
+  <div class="alert">
+    <div class="alert-title">📍 法香（蕃茜）— 5月12日单价异常偏高</div>
+    5月11日¥6.69/斤，5月12日突然涨至¥9.61/斤（+43.6%），5月16日回落至¥6.41/斤。波动较大，<b>建议按日确认单价后下单，避免采购成本异常升高。</b>
+  </div>
+
+  <!-- 采购建议 -->
+  <div class="section-title"><h2>💡 采购建议</h2></div>
+  <div class="suggest-grid">
+    <div class="suggest-card">
+      <div class="icon">📌</div>
+      <h4>优先采购 · 降价品项</h4>
+      <p>优质实心芹菜（5/16降至¥2.96）、皇帝菜（持续下降至¥3.36）、红苋菜（整体下行至¥2.28）为本周性价比最高品项，建议优先采购并适量增量。</p>
     </div>
-    <div class="section-body">
-      <div class="scroll-table">
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left;">#</th>
-              <th style="text-align:left;">品名</th>
-              <th>5/11</th>
-              <th>5/12</th>
-              <th>5/13</th>
-              <th>5/14</th>
-              <th>5/15</th>
-              <th>5/16</th>
-              <th>变动</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="price-gray">01</td><td><b>黄心白</b></td><td>¥1.66</td><td>¥1.82</td><td>¥1.82</td><td>¥1.99</td><td>¥1.99</td><td class="price-red">¥2.21</td><td><span class="badge-up">+33.1%</span></td></tr>
-            <tr><td class="price-gray">02</td><td><b>指天椒</b></td><td>¥4.71</td><td>¥5.08</td><td>¥5.08</td><td>¥5.32</td><td class="price-red">¥5.55</td><td>—</td><td><span class="badge-up">+17.8%</span></td></tr>
-            <tr><td class="price-gray">03</td><td><b>西红柿</b></td><td>¥3.27</td><td>¥3.62</td><td>¥3.62</td><td>¥3.85</td><td>¥3.95</td><td class="price-red">¥3.60</td><td><span class="badge-up">+10.1%</span></td></tr>
-            <tr><td class="price-gray">04</td><td><b>菠菜</b></td><td>¥4.00</td><td>¥4.23</td><td>¥4.00</td><td>¥4.23</td><td>¥4.23</td><td class="price-red">¥4.23</td><td><span class="badge-up">+5.8%</span></td></tr>
-            <tr><td class="price-gray">05</td><td><b>红苋菜（自加工）</b></td><td>¥3.17</td><td>¥2.66</td><td>¥2.53</td><td>¥2.53</td><td>¥4.18⚠</td><td class="price-green">¥2.28</td><td><span class="badge-down">-28.1%</span></td></tr>
-            <tr><td class="price-gray">06</td><td><b>优质实心芹菜</b></td><td>¥3.73</td><td>¥3.73</td><td>¥3.73</td><td>¥3.73</td><td>¥3.73</td><td class="price-green">¥2.96</td><td><span class="badge-down">-20.6%</span></td></tr>
-            <tr><td class="price-gray">07</td><td><b>皇帝菜</b></td><td>¥3.84</td><td>¥3.84</td><td>¥3.84</td><td>¥3.60</td><td>¥3.60</td><td class="price-green">¥3.36</td><td><span class="badge-down">-12.5%</span></td></tr>
-            <tr><td class="price-gray">08</td><td><b>去皮茼莴</b></td><td>¥4.91</td><td>¥4.91</td><td>¥4.91</td><td class="price-green">¥4.38</td><td>—</td><td>—</td><td><span class="badge-down">-10.8%</span></td></tr>
-            <tr><td class="price-gray">09</td><td><b>生菜</b></td><td>¥2.73</td><td>¥2.73</td><td>¥2.83</td><td>¥2.60</td><td>¥2.83</td><td class="price-green">¥2.47</td><td><span class="badge-down">-9.5%</span></td></tr>
-            <tr><td class="price-gray">10</td><td><b>法香（蕃茜）</b></td><td>¥6.69</td><td class="price-red">¥9.61</td><td class="price-red">¥9.61</td><td>—</td><td>—</td><td class="price-green">¥6.41</td><td><span class="badge-down">-4.2%</span></td></tr>
-            <tr><td class="price-gray">11</td><td><b>台玉米去皮</b></td><td>¥3.43</td><td>¥3.43</td><td>¥3.43</td><td>¥3.43</td><td>¥3.43</td><td>¥3.43</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">12</td><td><b>鲜海带结</b></td><td>¥3.30</td><td>—</td><td>¥3.30</td><td>—</td><td>—</td><td>¥3.30</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">13</td><td><b>鱼腥草/折耳根</b></td><td>¥8.32</td><td>¥8.33</td><td>¥8.33</td><td>¥8.33</td><td>¥8.33</td><td>¥8.33</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">14</td><td><b>葱/毛葱</b></td><td>¥4.14</td><td>¥4.14</td><td>¥4.14</td><td>¥4.14</td><td>¥4.14</td><td>¥4.14</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">15</td><td><b>香菇</b></td><td>¥9.26</td><td>¥9.26</td><td>¥9.26</td><td>¥9.26</td><td>¥9.26</td><td>¥9.26</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">16</td><td><b>蟹贝菜</b></td><td>¥22.19</td><td>—</td><td>¥22.19</td><td>—</td><td>¥22.19</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">17</td><td><b>云南小瓜/西葫芦</b></td><td>¥1.96</td><td>¥1.96</td><td>—</td><td>¥1.96</td><td>¥1.96</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">18</td><td><b>虫草花</b></td><td>¥5.63</td><td>¥5.63</td><td>¥5.63</td><td>¥5.63</td><td>¥5.63</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">19</td><td><b>海鲜菇</b></td><td>¥5.72</td><td>¥5.72</td><td>—</td><td>¥5.72</td><td>¥5.72</td><td>¥5.72</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">20</td><td><b>鹿茸菇</b></td><td>¥4.44</td><td>¥4.44</td><td>¥4.44</td><td>—</td><td>¥4.44</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">21</td><td><b>蟹味菇</b></td><td>—</td><td>¥5.95</td><td>¥5.95</td><td>—</td><td>¥5.95</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">22</td><td><b>小黄豆芽</b></td><td>¥1.46</td><td>¥1.46</td><td>¥1.46</td><td>¥1.46</td><td>¥1.46</td><td>¥1.46</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">23</td><td><b>蕹菜</b></td><td>¥3.76</td><td>¥3.76</td><td>—</td><td>—</td><td>—</td><td>¥3.76</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">24</td><td><b>大芋头去皮</b></td><td>¥8.31</td><td>¥8.31</td><td>¥8.31</td><td>¥8.31</td><td>¥8.31</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">25</td><td><b>黄心土豆</b></td><td>¥2.55</td><td>—</td><td>¥2.61</td><td>¥2.29</td><td>—</td><td>¥2.61</td><td><span class="badge-stable">小幅波动</span></td></tr>
-            <tr><td class="price-gray">26</td><td><b>油麦菜</b></td><td>—</td><td>—</td><td>—</td><td>¥1.89</td><td>¥1.89</td><td>¥1.89</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">27</td><td><b>白蒜苗</b></td><td>—</td><td>—</td><td>—</td><td>¥6.78</td><td>¥6.78</td><td>¥6.78</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">28</td><td><b>蒜米</b></td><td>¥2.70</td><td>¥2.70</td><td>¥2.70</td><td>¥2.62</td><td>¥2.62</td><td>¥2.62</td><td><span class="badge-down">-3.0%</span></td></tr>
-            <tr><td class="price-gray">29</td><td><b>鲜木耳</b></td><td>¥3.85</td><td>¥3.85</td><td>¥3.85</td><td>—</td><td>¥3.85</td><td>¥3.85</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">30</td><td><b>香菜</b></td><td>¥6.71</td><td>¥7.35</td><td>¥6.71</td><td>—</td><td>—</td><td>—</td><td><span class="badge-stable">小幅波动</span></td></tr>
-            <tr><td class="price-gray">31</td><td><b>金针菇</b></td><td>¥2.70</td><td>¥2.70</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">32</td><td><b>秀珍菇</b></td><td>¥1.59</td><td>¥1.70</td><td>¥1.59</td><td>¥1.59</td><td>¥1.59</td><td>—</td><td><span class="badge-stable">小幅波动</span></td></tr>
-            <tr><td class="price-gray">33</td><td><b>贝贝南瓜</b></td><td>¥2.16</td><td>¥2.16</td><td>—</td><td>—</td><td>¥2.16</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-            <tr><td class="price-gray">34</td><td><b>薄荷叶</b></td><td>¥8.56</td><td>—</td><td>—</td><td>—</td><td>¥8.56</td><td>—</td><td><span class="badge-stable">持平</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="suggest-card">
+      <div class="icon">⚡</div>
+      <h4>谨慎采购 · 涨价品项</h4>
+      <p>黄心白涨幅高达+33%，建议按用量严格控制订购；指天椒持续上涨，如菜品用量较大可提前与供应商沟通锁价；西红柿5/16出现小幅回落，观望1-2天再决定是否补货。</p>
+    </div>
+    <div class="suggest-card">
+      <div class="icon">🔄</div>
+      <h4>按需采购 · 稳定品项</h4>
+      <p>台玉米、鲜海带结、各类菌菇（海鲜菇/鹿茸菇/蟹味菇/虫草花）等12个品项价格全周期稳定，可根据实际库存和用量正常排单，无需因价格因素调整采购计划。</p>
+    </div>
+    <div class="suggest-card">
+      <div class="icon">📊</div>
+      <h4>关注异常 · 核实单据</h4>
+      <p>法香价格波动较大（5/12曾涨至¥9.61），建议每日确认采购价再下单，避免成本异常升高。</p>
     </div>
   </div>
 
-</div><!-- /main -->
+</div>
 
-<!-- ======= FOOTER ======= -->
-<footer>
-  <div class="footer-brand">美团快驴 · 食材供应链 | 华南大区 KA 团队</div>
-  <p>数据分析 by Nova · 锦鲤仙侍 ⚡ | 基于黔有财西丽店&车公庙店 2026.05.11—05.16 快驴配送单</p>
-  <p>生成时间：2026年5月17日 | 本报告数据仅供内部参考，不作为正式结算依据</p>
-</footer>
+<!-- FOOTER -->
+<div class="footer">
+  <div style="font-size:16px;font-weight:900;margin-bottom:6px">美团快驴 · 食材供应链</div>
+  <span>本报告数据来源于快驴平台配送单 · 分析时间：2026年5月11日—5月16日 · 黔有财·贵州地摊酸汤火锅 西丽店 · 车公庙店</span>
+  <div style="margin-top:6px;font-size:11px;opacity:0.6">数据分析 by 快驴华南大区 KA 销售团队 · 仅供内部参考</div>
+</div>
 
+<script>
+// ===== 数据 =====
+const dates = ['5/11','5/12','5/13','5/14','5/15','5/16'];
+
+// 每日采购金额（两店合计）
+const dailyGMV = {
+  xili:   [1893.00, 1024.10, 965.61, 1327.40, 1387.82, 2011.35],
+  cgm:    [985.56,  874.98,  504.14, 925.07,  885.10,  1063.12],
+  total:  [2878.56, 1899.08, 1469.75,2252.47, 2272.92, 3074.47]
+};
+
+// 每日整体品项均价
+const avgPrice = [4.55, 4.49, 5.38, 4.29, 4.69, 4.11];
+
+// 涨价品项日价格（均值）
+const risingData = {
+  '黄心白':    [1.66, 1.83, 1.83, 1.99, 1.99, 2.21],
+  '指天椒':    [4.71, 5.08, 5.08, 5.32, 5.55, null],
+  '西红柿':    [3.28, 3.63, 3.63, 3.85, 3.95, 3.60],
+  '菠菜':      [4.00, 4.12, 4.00, 4.23, 4.23, 4.23],
+};
+
+// 降价品项日价格
+const fallingData = {
+  '红苋菜':          [3.17, 2.66, 2.53, 2.53, 2.28, 2.28],
+  '优质实心芹菜':    [3.73, 3.73, 3.73, 3.73, 3.73, 2.96],
+  '皇帝菜':          [3.84, 3.84, 3.84, 3.60, 3.60, 3.36],
+  '去皮莴笋':        [4.28, 4.28, 4.28, 4.28, 4.28, 3.97],
+  '生菜':            [2.73, 2.73, 2.65, 2.47, 2.65, 2.47],
+};
+
+// 全品项数据
+const allItems = [
+  {name:'黄心白',        prices:[1.66,1.83,1.83,1.99,1.99,2.21], trend:'up'},
+  {name:'指天椒',        prices:[4.71,5.08,5.08,5.32,5.55,null], trend:'up'},
+  {name:'西红柿',        prices:[3.28,3.63,3.63,3.85,3.95,3.60], trend:'up'},
+  {name:'菠菜',          prices:[4.00,4.12,4.00,4.23,4.23,4.23], trend:'up'},
+  {name:'红苋菜（自加工）', prices:[3.17,2.66,2.53,2.53,2.28,2.28], trend:'down'},
+  {name:'优质实心芹菜',  prices:[3.73,3.73,3.73,3.73,3.73,2.96], trend:'down'},
+  {name:'皇帝菜',        prices:[3.84,3.84,3.84,3.60,3.60,3.36], trend:'down'},
+  {name:'去皮莴笋',      prices:[4.28,4.28,4.28,4.28,4.28,3.97], trend:'down'},
+  {name:'生菜',          prices:[2.73,2.73,2.65,2.47,2.65,2.47], trend:'down'},
+  {name:'法香（蕃茜）',  prices:[6.69,9.61,null,null,null,6.41], trend:'down'},
+  {name:'台玉米去皮',    prices:[3.43,3.43,3.43,3.43,3.43,3.43], trend:'stable'},
+  {name:'鲜海带结',      prices:[3.30,3.30,3.30,null,null,3.30], trend:'stable'},
+  {name:'鱼腥草/折耳根', prices:[8.32,8.33,8.33,8.33,8.33,8.33], trend:'stable'},
+  {name:'葱/毛葱',       prices:[4.14,4.14,4.14,4.14,4.14,4.14], trend:'stable'},
+  {name:'香菇',          prices:[9.26,9.26,9.26,9.26,null,9.26], trend:'stable'},
+  {name:'蟹贝菜',        prices:[22.19,null,null,null,null,null], trend:'stable'},
+  {name:'云南小瓜/西葫芦',prices:[1.96,1.96,null,null,null,null], trend:'stable'},
+  {name:'虫草花',        prices:[5.63,5.63,5.63,null,null,null], trend:'stable'},
+  {name:'海鲜菇',        prices:[5.72,5.72,null,5.72,5.72,5.72], trend:'stable'},
+  {name:'鹿茸菇',        prices:[4.44,4.44,4.44,null,null,null], trend:'stable'},
+  {name:'蟹味菇',        prices:[5.95,5.95,5.95,null,null,null], trend:'stable'},
+  {name:'小黄豆芽',      prices:[1.46,1.46,null,null,null,null], trend:'stable'},
+  {name:'金针菇',        prices:[2.70,2.70,null,null,null,null], trend:'stable'},
+  {name:'大芋头去皮',    prices:[8.31,8.31,8.65,null,null,null], trend:'stable'},
+  {name:'黄心土豆',      prices:[2.61,2.61,2.61,2.22,null,null], trend:'down'},
+  {name:'冬瓜',          prices:[1.18,null,null,null,null,null], trend:'stable'},
+  {name:'贝贝南瓜',      prices:[2.16,2.16,null,null,2.16,null], trend:'stable'},
+  {name:'薄荷叶',        prices:[null,null,null,null,8.56,null], trend:'stable'},
+  {name:'香菜',          prices:[null,7.35,6.71,null,null,null], trend:'stable'},
+  {name:'蒜米',          prices:[2.70,2.70,2.70,2.66,2.66,2.62], trend:'down'},
+  {name:'秀珍菇',        prices:[1.59,1.70,1.59,null,null,null], trend:'stable'},
+  {name:'鲜木耳',        prices:[3.85,3.85,3.85,null,null,null], trend:'stable'},
+  {name:'西洋菜',        prices:[3.05,null,null,null,null,3.57], trend:'up'},
+  {name:'油麦菜',        prices:[null,null,null,1.89,1.89,1.89], trend:'stable'},
+  {name:'白蒜苗',        prices:[null,null,null,6.78,6.78,6.78], trend:'stable'},
+  {name:'水白菜',        prices:[1.52,null,null,null,null,null], trend:'stable'},
+  {name:'黄金平菇',      prices:[10.55,null,null,null,null,null], trend:'stable'},
+];
+
+// ===== 渲染全品项表格 =====
+const tbody = document.getElementById('all-items-tbody');
+allItems.forEach(item => {
+  const tr = document.createElement('tr');
+  const trendLabel = item.trend==='up' ? '<span class="tag-up">↑ 上涨</span>' :
+                     item.trend==='down' ? '<span class="tag-down">↓ 下降</span>' :
+                     '<span class="tag-stable">— 稳定</span>';
+  let cells = `<td><b>${item.name}</b></td>`;
+  item.prices.forEach((p,i) => {
+    const style = item.trend==='up' ? 'color:#C8000A' : item.trend==='down' ? 'color:#2E7D32' : '';
+    cells += `<td style="${style}">${p !== null ? '¥'+p.toFixed(2) : '—'}</td>`;
+  });
+  cells += `<td>${trendLabel}</td>`;
+  tr.innerHTML = cells;
+  tbody.appendChild(tr);
+});
+
+// ===== ECharts =====
+// 1. 每日采购金额柱状图
+const chart1 = echarts.init(document.getElementById('chart-daily-gmv'));
+chart1.setOption({
+  tooltip: { trigger:'axis', axisPointer:{type:'shadow'} },
+  legend: { data:['西丽店','车公庙店','合计'], top:0 },
+  grid: { left:'3%',right:'4%',bottom:'3%',containLabel:true },
+  xAxis: { type:'category', data:dates },
+  yAxis: { type:'value', name:'金额（元）', axisLabel:{formatter:v=>'¥'+v} },
+  series:[
+    {
+      name:'西丽店', type:'bar', stack:'total',
+      itemStyle:{color:'#1565C0'},
+      data: dailyGMV.xili
+    },
+    {
+      name:'车公庙店', type:'bar', stack:'total',
+      itemStyle:{color:'#42A5F5'},
+      data: dailyGMV.cgm
+    },
+    {
+      name:'合计', type:'line',
+      symbol:'circle', symbolSize:8,
+      itemStyle:{color:'#F5C518'},
+      lineStyle:{color:'#F5C518',width:2},
+      label:{show:true,formatter:p=>'¥'+p.value.toLocaleString(),color:'#1565C0',fontWeight:'bold',fontSize:11},
+      data: dailyGMV.total
+    }
+  ]
+});
+
+// 2. 每日均价趋势
+const chart2 = echarts.init(document.getElementById('chart-avg-price'));
+chart2.setOption({
+  tooltip: { trigger:'axis', formatter: p => `${p[0].name}<br/>均价：¥${p[0].value}/斤` },
+  grid: { left:'3%',right:'4%',bottom:'3%',containLabel:true },
+  xAxis: { type:'category', data:dates },
+  yAxis: {
+    type:'value', name:'元/斤',
+    min:3.5, max:5.0,
+    axisLabel:{formatter:v=>'¥'+v}
+  },
+  visualMap: {
+    show:false,
+    dimension:0,
+    pieces:[
+      {min:0,max:1,color:'#1565C0'},
+      {min:1,max:5,color:'#42A5F5'}
+    ]
+  },
+  series:[{
+    type:'line',
+    data: avgPrice,
+    smooth:true,
+    symbol:'circle', symbolSize:10,
+    itemStyle:{color:'#1565C0'},
+    lineStyle:{width:3,color:'#1565C0'},
+    areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,
+      colorStops:[{offset:0,color:'rgba(21,101,192,0.2)'},{offset:1,color:'rgba(21,101,192,0.01)'}]}},
+    label:{show:true,formatter:p=>'¥'+p.value,color:'#1565C0',fontWeight:'bold',fontSize:12}
+  }]
+});
+
+// 3. 涨价趋势线图
+const chart3 = echarts.init(document.getElementById('chart-rising'));
+const risingColors = ['#C8000A','#E65100','#FF8F00','#C62828'];
+const risingSeries = Object.entries(risingData).map(([name,data],i) => ({
+  name, type:'line', smooth:true,
+  symbol:'circle', symbolSize:7,
+  itemStyle:{color:risingColors[i]},
+  lineStyle:{width:2.5,color:risingColors[i]},
+  label:{show:false},
+  connectNulls:false,
+  data
+}));
+chart3.setOption({
+  title:{text:'涨价品项日价格走势',left:'center',textStyle:{color:'#333',fontSize:14,fontWeight:'bold'}},
+  tooltip:{ trigger:'axis' },
+  legend:{ data:Object.keys(risingData), bottom:0 },
+  grid:{left:'3%',right:'4%',bottom:'14%',top:'12%',containLabel:true},
+  xAxis:{type:'category',data:dates},
+  yAxis:{type:'value',name:'元/斤',axisLabel:{formatter:v=>'¥'+v}},
+  series: risingSeries
+});
+
+// 4. 降价趋势线图
+const chart4 = echarts.init(document.getElementById('chart-falling'));
+const fallingColors = ['#2E7D32','#1565C0','#00838F','#6A1B9A','#1B5E20'];
+const fallingSeries = Object.entries(fallingData).map(([name,data],i) => ({
+  name, type:'line', smooth:true,
+  symbol:'circle', symbolSize:7,
+  itemStyle:{color:fallingColors[i]},
+  lineStyle:{width:2.5,color:fallingColors[i]},
+  connectNulls:false,
+  data
+}));
+chart4.setOption({
+  title:{text:'降价品项日价格走势',left:'center',textStyle:{color:'#333',fontSize:14,fontWeight:'bold'}},
+  tooltip:{ trigger:'axis' },
+  legend:{ data:Object.keys(fallingData), bottom:0 },
+  grid:{left:'3%',right:'4%',bottom:'14%',top:'12%',containLabel:true},
+  xAxis:{type:'category',data:dates},
+  yAxis:{type:'value',name:'元/斤',axisLabel:{formatter:v=>'¥'+v}},
+  series: fallingSeries
+});
+
+// resize
+window.addEventListener('resize', () => {
+  [chart1,chart2,chart3,chart4].forEach(c=>c.resize());
+});
+</script>
 </body>
 </html>
