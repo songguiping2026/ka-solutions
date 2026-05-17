@@ -677,7 +677,7 @@ chart2.setOption({
   xAxis: { type:'category', data:dates },
   yAxis: {
     type:'value', name:'元/斤',
-    min:3.5, max:5.6,
+    min:3.4, max:5.9,
     axisLabel:{formatter:v=>'¥'+v}
   },
   visualMap: {
@@ -697,7 +697,7 @@ chart2.setOption({
     lineStyle:{width:3,color:'#1565C0'},
     areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,
       colorStops:[{offset:0,color:'rgba(21,101,192,0.2)'},{offset:1,color:'rgba(21,101,192,0.01)'}]}},
-    label:{show:true,formatter:p=>'¥'+p.value,color:'#1565C0',fontWeight:'bold',fontSize:12}
+    label:{show:true,formatter:p=>'¥'+p.value,color:'#1565C0',fontWeight:'bold',fontSize:12,position:'bottom'}
   }]
 });
 
